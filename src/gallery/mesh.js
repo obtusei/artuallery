@@ -10,8 +10,8 @@ const loadTexture = async (texture, url) => {
 module.exports = (regl, data, useReflexion) => {
   const wallTexture = regl.texture();
   const floorTexture = regl.texture();
-  loadTexture(wallTexture, "src/res/wall.jpg");
-  loadTexture(floorTexture, "src/res/floor.jpg");
+  loadTexture(wallTexture, "/wall.jpg");
+  loadTexture(floorTexture, "/floor.jpg");
   return regl({
     frag: `
         precision lowp float;

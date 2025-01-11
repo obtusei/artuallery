@@ -1,13 +1,11 @@
-import { initializeRegl } from "./basic";
 import "./style.css";
-import "remixicon/fonts/remixicon.css";
-import { setupArtWork, setupCounter } from "./welcome.js";
+import { setupArtWork } from "./others/welcome";
 
 import initGallery from "./gallery";
 import gsap from "gsap";
 document.querySelector("#app").innerHTML = `
     <div class="canvas-container">
-        <div id="welcome-screen" class="absolute inset-0 flex items-center justify-center bg-red-200/10">
+        <div id="welcome-screen" class="absolute inset-0 hidden items-center justify-center bg-red-200/10">
         <div id="art-bg" class="absolute inset-0 bg-white"></div>
         <div id="welcome-bg" class="flex flex-col items-center justify-center text-center gap-4 p-40 rounded-3xl relative">
           <div class="absolute bg-white  inset-0  blur-2xl rounded-3xl"></div>
@@ -41,16 +39,20 @@ document.querySelector("#app").innerHTML = `
         </div>
         
         </div>
-        <div class="absolute hidden bottom-4 left-4 bg-white p-4 rounded-xl">
+        <div id="art-info" class="absolute hidden top-4 right-4 bg-white p-4 rounded-xl">
         <div class="flex items-start justify-between gap-10">
         <div class="">
-        <h1 id="painting-title" class="text-2xl font-semibold leading-none">Wheat field</h1>
-        <h1 id="painting-painter" class="text-lg font-semibold opacity-65">Vincent Van Gogh</h1></div>
-        <button><i class="ri-arrow-down-s-line text-2xl"></i></button>
+        <h1 id="painting-title" class="text-2xl font-semibold leading-none"></h1>
+        <h1 id="painting-painter" class="text-lg font-semibold opacity-65"></h1></div>
+        <button id="showMore"><i class="ri-arrow-down-s-line text-2xl"></i></button>
         </div>
-        <div class=" max-w-lg text-xl">
-        <p id="painting-desc">"Wheat Field with Cypresses" is one of Vincent van Gogh's most vibrant and expressive landscape paintings, created in 1889 while he was staying at the Saint-Paul-de-Mausole asylum in Saint-Rémy-de-Provence. The painting depicts a golden wheat field with towering cypress trees set against a swirling, energetic sky</p>
+        <div class=" max-w-lg space-y-2">
+        <p id="painting-desc" class="text-xl line-clamp-2">"Wheat Field with Cypresses" is one of Vincent van Gogh's most vibrant and expressive landscape paintings, created in 1889 while he was staying at the Saint-Paul-de-Mausole asylum in Saint-Rémy-de-Provence. The painting depicts a golden wheat field with towering cypress trees set against a swirling, energetic sky</p>
+        <table>
+        
+        </table>        
         </div>
+
         
         </div>
         <canvas id="canvas" class="canvas"></canvas>
@@ -60,6 +62,12 @@ document.querySelector("#app").innerHTML = `
 // Get the canvas element
 const canvas = document.getElementById("canvas");
 const startExploring = document.getElementById("start-exploring");
+const shoreMore = document.getElementById("showMore");
+
+shoreMore.addEventListener("click", (event) => {
+  event.preventDefault();
+  document.getElementById("painting-desc").classList.toggle("hidden");
+});
 
 const wc = document.getElementById("welcome-screen");
 startExploring.addEventListener("click", startExploringfun);
@@ -83,6 +91,7 @@ gsap.from(".w1", {
 function startExploringfun() {
   // wc.classList.add("hidden");
   // Trigger GSAP animations
+
   gsap.from("#welcome-bg", {
     width: "100%",
     height: "100%",

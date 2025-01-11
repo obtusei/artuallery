@@ -22,7 +22,7 @@
     "regl": "^2.1.1",
     "remixicon": "^4.6.0",
     "stats.js": "^0.17.0",
-    "vite-plugin-commonjs": "^0.10.4",
-    "vite-plugin-node-polyfills": "^0.22.0"
+    "stream-browserify": "^3.0.0",
+    "vite-plugin-commonjs": "^0.10.4"
   }
 }

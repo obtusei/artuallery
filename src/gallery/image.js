@@ -2,7 +2,7 @@
 
 const api = require("../api/api");
 const selectedApi = new URLSearchParams(window.location.search).get("api");
-const dataAccess = api["artic"]; //api[selectedApi] || api[api.default];
+const dataAccess = require("../api/artic"); //api["artic"]; //api[selectedApi] || api[api.default];
 const text = require("./text");
 
 let paintingCache = {};

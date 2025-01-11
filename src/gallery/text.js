@@ -130,7 +130,7 @@ module.exports = {
       // Check if click is within text bounds
       // This is a simple check - you might need to adjust based on your specific needs
       if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
-        alert("Text clicked: I love " + this.currentText);
+        // alert("Text clicked: I love " + this.currentText);
       }
     });
 

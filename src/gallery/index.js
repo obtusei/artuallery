@@ -62,8 +62,8 @@ module.exports = function initGallery(canvas) {
   map = require("./map")();
   const mesh = require("./mesh");
   drawMap = mesh(regl, map, useReflexion);
-  // placement = require("./placement")(regl, map);
-  // drawPainting = require("./painting")(regl);
+  placement = require("./placement")(regl, map);
+  drawPainting = require("./painting")(regl);
   fps = require("./fps")(map, fovY);
 
   const context = regl({
@@ -88,12 +88,55 @@ module.exports = function initGallery(canvas) {
     },
   });
 
+  let prevPos = [null, null, null]; // To store the previous position
+
+  const positionChanged = (currentPos, prevPos, threshold = 0.1) => {
+    return (
+      Math.abs(currentPos[0] - prevPos[0]) > threshold ||
+      Math.abs(currentPos[1] - prevPos[1]) > threshold ||
+      Math.abs(currentPos[2] - prevPos[2]) > threshold
+    );
+  };
+
   regl.frame(({ time }) => {
     stats.begin();
     fps.tick({
       time,
     });
-    // placement.update(fps.pos, fps.fmouse[1], fovX());
+    // Check if position has changed significantly
+    placement.update(fps.pos, fps.fmouse[1], fovX());
+    if (positionChanged(fps.pos, prevPos)) {
+      // Update painting placements
+      // Proximity check for paintings
+      const threshold = 5.0; // Define a threshold distance for "nearness"
+      const paintings = placement.batch(); // Get visible paintings
+      paintings.forEach((painting) => {
+        const paintingPos = painting.vseg
+          ? [
+              (painting.vseg[0][0] + painting.vseg[1][0]) / 2,
+              (painting.vseg[0][1] + painting.vseg[1][1]) / 2,
+            ]
+          : null;
+        if (!paintingPos) return;
+        const distance = Math.sqrt(
+          Math.pow(fps.pos[0] - paintingPos[0], 2) +
+            Math.pow(fps.pos[2] - paintingPos[1], 2) // Compare X and Z coordinates
+        );
+        if (distance < threshold) {
+          const artInfo = document.getElementById("art-info");
+          artInfo.classList.remove("hidden");
+          let paintingTitle = document.getElementById("painting-title");
+          let paintingPainter = document.getElementById("painting-painter");
+          paintingTitle.innerHTML = painting.title || "Unknown Title";
+          paintingPainter.innerHTML = painting.artist_title || "Unknown Artist";
+          // console.log(
+          //   `Near painting: ${JSON.stringify(painting) || "Unknown Title"}`
+          // );
+        }
+      });
+      // Update the previous position
+      prevPos = [...fps.pos];
+    }
     regl.clear({
       color: [0, 0, 0, 1],
       depth: 1,
@@ -102,11 +145,11 @@ module.exports = function initGallery(canvas) {
       if (useReflexion) {
         reflexion(() => {
           drawMap();
-          // drawPainting(placement.batch());
+          drawPainting(placement.batch());
         });
       }
       drawMap();
-      // drawPainting(placement.batch());
+      drawPainting(placement.batch());
     });
     stats.end();
   });

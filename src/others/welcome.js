@@ -1,6 +1,4 @@
-// const gsap = require("gsap");
-import gsap from "gsap";
-const api = require("./api/artic");
+const api = require("../api/artic");
 
 export function setupArtWork(element) {
   const images = [
@@ -16,10 +14,10 @@ export function setupArtWork(element) {
     console.log(imageID);
     const image = await api.fetchImage({ image_id: imageID }, "high");
     console.log(image);
-    images.push(image);
+    // images.push(image);
   });
 
-  const columns = 5; // Number of columns in the grid
+  const columns = 10; // Number of columns in the grid
   const rows = 10; // Number of rows in the grid
   const totalImages = columns * rows;
 

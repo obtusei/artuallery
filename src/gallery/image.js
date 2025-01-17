@@ -74,6 +74,7 @@ module.exports = {
     const from = Object.keys(paintingCache).length;
     dataAccess.fetchList(from, count).then((paintings) => {
       count = paintings.length;
+      // console.log("Images fetched:", paintings);
       paintings.map((p) => {
         if (paintingCache[p.image_id]) {
           if (--count === 0) cbAll();

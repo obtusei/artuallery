@@ -1,18 +1,10 @@
 "use strict";
 
+const { fetchDetail, fetchArtist } = require("../api/artic");
+
 module.exports = function initGallery(canvas) {
-  var useReflexion = true;
-  var showStats = true;
-
-  // Set the canvas size to match the screen
-  // canvas.width = window.innerWidth * window.devicePixelRatio;
-  // canvas.height = window.innerHeight * window.devicePixelRatio;
-
-  // Scale down for CSS dimensions
-  // canvas.style.width = `${window.innerWidth}px`;
-  // canvas.style.height = `${window.innerHeight}px`;
-
-  // ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+  var useReflexion = false;
+  var showStats = false;
 
   // Handle different screen ratios
   const mapVal = (value, min1, max1, min2, max2) =>
@@ -110,7 +102,7 @@ module.exports = function initGallery(canvas) {
       // Proximity check for paintings
       const threshold = 5.0; // Define a threshold distance for "nearness"
       const paintings = placement.batch(); // Get visible paintings
-      paintings.forEach((painting) => {
+      paintings.forEach(async (painting) => {
         const paintingPos = painting.vseg
           ? [
               (painting.vseg[0][0] + painting.vseg[1][0]) / 2,
@@ -123,15 +115,49 @@ module.exports = function initGallery(canvas) {
             Math.pow(fps.pos[2] - paintingPos[1], 2) // Compare X and Z coordinates
         );
         if (distance < threshold) {
-          const artInfo = document.getElementById("art-info");
-          artInfo.classList.remove("hidden");
           let paintingTitle = document.getElementById("painting-title");
           let paintingPainter = document.getElementById("painting-painter");
+          let paintingDesc = document.getElementById("painting-desc");
+          let paintingCreated = document.getElementById("painting-created");
+          let paintingOrigin = document.getElementById("painting-origin");
+          let paintingDimensions = document.getElementById(
+            "painting-dimensions"
+          );
+          let paintingMedium = document.getElementById("painting-medium");
+          let paintingStyle = document.getElementById("painting-style");
+          let paintingCategory = document.getElementById("painting-category");
+          let paintingTags = document.getElementById("painting-tags");
+          const artInfo = document.getElementById("art-info");
+          const data = await fetchDetail(painting.id);
+          console.log(data);
+          artInfo.classList.remove("hidden");
           paintingTitle.innerHTML = painting.title || "Unknown Title";
           paintingPainter.innerHTML = painting.artist_title || "Unknown Artist";
-          // console.log(
-          //   `Near painting: ${JSON.stringify(painting) || "Unknown Title"}`
-          // );
+          paintingDesc.innerHTML = data.description || "No Description";
+          paintingCreated.innerHTML = data.date_display || "N/A";
+          paintingOrigin.innerHTML = data.place_of_origin || "N/A";
+          paintingDimensions.innerHTML = data.dimensions || "N/A";
+          paintingMedium.innerHTML = data.medium_display || "N/A";
+          paintingStyle.innerHTML = data.style_title || "N/A";
+          paintingCategory.innerHTML = data.category_titles.join(", ") || "N/A";
+          data.classification_titles.forEach((item, index) => {
+            const newLi = document.createElement("li");
+            newLi.textContent = item;
+            newLi.className =
+              "bg-gray-100 text-gray-600 rounded-xl w-fit px-4 py-2 h-fit shrink-0 font-medium";
+            paintingTags.appendChild(newLi);
+          });
+          let artistTitle = document.getElementById("artist-title");
+          let artistDesc = document.getElementById("artist-desc");
+          let artistDob = document.getElementById("artist-dob");
+
+          if (data.artist_id) {
+            const artistData = await fetchArtist(data.artist_id);
+            artistTitle.innerHTML = artistData.title || "Unknown Artist";
+            artistDesc.innerHTML = artistData.description || "No Description";
+            artistDob.innerHTML =
+              artistData.birth_date + " - " + artistData.death_date || "N/A";
+          }
         }
       });
       // Update the previous position

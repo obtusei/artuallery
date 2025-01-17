@@ -1,0 +1,200 @@
+<div class="canvas-container">
+  <div
+    id="welcome-screen"
+    class="absolute inset-0 flex items-center justify-center bg-red-200/10"
+  >
+    <div id="art-bg" class="absolute inset-0 bg-white"></div>
+    <div
+      id="welcome-bg"
+      class="flex flex-col items-center justify-center text-center gap-4 p-40 rounded-3xl relative"
+    >
+      <div class="absolute bg-white inset-0 blur-2xl rounded-3xl"></div>
+      <div class="z-0 flex flex-col items-center justify-center">
+        <p class="font-semibold text-2xl w1 uppercase">Welcome to</p>
+        <h1 class="text-8xl mt-5 yatri font-bold w1 tracking-widest">
+          Artuallery
+        </h1>
+        <p class="text-2xl font-medium opacity-60 mt-6 uppercase w1">
+          A virtual art gallery
+        </p>
+        <button
+          id="start-exploring"
+          class="bg-black text-white mt-24 px-4 py-2 text-base rounded-lg w1"
+        >
+          Start Exploring <i class="ri-arrow-right-line"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- ART -->
+  <div
+    id="art-info"
+    class="absolute hidden bottom-0 right-4 w-[450px] bg-white p-6 rounded-t-3xl"
+  >
+    <div class="flex items-start justify-between gap-10">
+      <div class="">
+        <h1 id="painting-title" class="text-3xl font-semibold leading-none">
+          The Bedroom
+        </h1>
+        <h1 id="painting-painter" class="text-xl font-semibold opacity-65">
+          Vincent Van Gogh
+        </h1>
+      </div>
+      <button id="showMore" class="duration-300">
+        <i class="ri-arrow-down-s-line text-2xl"></i>
+      </button>
+    </div>
+    <div id="paiting-details" class="max-w-lg hidden space-y-2 mt-4">
+      <p id="painting-desc" class="text-xl">
+        "Wheat Field with Cypresses" is one of Vincent van Gogh's most vibrant
+        and expressive landscape paintings, created in 1889 while he was staying
+        at the Saint-Paul-de-Mausole asylum in Saint-Rémy-de-Provence. The
+        painting depicts a golden wheat field with towering cypress trees set
+        against a swirling, energetic sky.
+      </p>
+      <h1 class="text-xl font-semibold pt-4">Details</h1>
+      <div class="leading-loose">
+        <b>Date Created: </b><span id="painting-created">1888</span><br />
+        <b>Place of Origin: </b><span id="painting-origin">Arles, France</span
+        ><br />
+        <b>Dimensions: </b
+        ><span id="painting-dimensions">73.6 x 92.3 cm (29 x 36 5/8 in.)</span
+        ><br />
+        <b>Medium: </b><span id="painting-medium">Oil on Canvas</span><br />
+        <b>Style: </b><span id="painting-style">Post Impressionism</span><br />
+        <b>Category: </b
+        ><span id="painting-category"
+          >Painting and Sculpture of Europe, Essentials</span
+        ><br />
+      </div>
+      <ul class="flex gap-2 text-sm overflow-x-scroll no-scrollbar">
+        <li
+          class="bg-gray-100 text-gray-600 rounded-xl w-fit px-4 py-2 h-fit shrink-0 font-medium"
+        >
+          Oil on Canvas
+        </li>
+        <li
+          class="bg-gray-100 text-gray-600 rounded-xl w-fit px-4 py-2 h-fit shrink-0 font-medium"
+        >
+          Interiors
+        </li>
+        <li
+          class="bg-gray-100 text-gray-600 rounded-xl w-fit px-4 py-2 h-fit shrink-0 font-medium"
+        >
+          Chairs
+        </li>
+        <li
+          class="bg-gray-100 text-gray-600 rounded-xl w-fit px-4 py-2 h-fit shrink-0 font-medium"
+        >
+          Bed
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div
+    id="bottom-control"
+    class="items-center gap-4 absolute bottom-4 left-4 flex text-sm rounded-xl"
+  >
+    <button
+      id="fullscreen-button"
+      class="bg-white/20 text-white p-4 px-4 rounded-full"
+    >
+      <i data-lucide="maximize"></i>
+    </button>
+    <div
+      class="flex bg-black/10 text-white rounded-full items-center h-fit p-2 gap-2"
+    >
+      <div id="bottom-info" class="flex shrink-0 items-center gap-2 w-[900px]">
+        <div class="flex gap-2 items-center shrink-0 p-2 px-3 rounded-full">
+          <i data-lucide="circle-arrow-up"></i> Use keyboard Arrow keys to move
+        </div>
+        <div class="flex gap-2 items-center shrink-0 p-2 px-3 rounded-full">
+          <i data-lucide="mouse-pointer-click"></i> Click to lock the pointer
+        </div>
+        <div class="flex gap-2 items-center shrink-0 p-2 px-3 rounded-full">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-rotate-3d"
+          >
+            <path
+              d="M16.466 7.5C15.643 4.237 13.952 2 12 2 9.239 2 7 6.477 7 12s2.239 10 5 10c.342 0 .677-.069 1-.2"
+            />
+            <path d="m15.194 13.707 3.814 1.86-1.86 3.814" />
+            <path
+              d="M19 15.57c-1.804.885-4.274 1.43-7 1.43-5.523 0-10-2.239-10-5s4.477-5 10-5c4.838 0 8.873 1.718 9.8 4"
+            />
+          </svg>
+          <p>Use Mouse to rotate</p>
+        </div>
+        <div class="flex gap-2 items-center shrink-0 p-2 px-3 rounded-full">
+          <i data-lucide="zoom-in"></i> Click an artwork to zoom
+        </div>
+      </div>
+      <button
+        id="hide-control-button"
+        class="flex hover:bg-white/30 gap-2 items-center p-2 px-2 rounded-full"
+      >
+        <i data-lucide="chevron-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <div
+    id="settings-container"
+    class="fixed top-4 left-4 bg-gray-400 p-0 w-[48px] h-[48px] rounded-3xl"
+  >
+    <button
+      id="settings-button"
+      class="bg-white/20 text-white p-3 px-3 rounded-full"
+    >
+      <i data-lucide="settings-2"></i>
+    </button>
+    <div id="settings-list" class="mt-4 opacity-0 hidden space-y-3 text-white">
+      <div class="flex items-center justify-between">
+        <p class="text-lg">Movement</p>
+        <select class="bg-black/10 rounded-xl px-2 py-1">
+          <option>Click & Drag</option>
+          <option>Mouse Touch</option>
+        </select>
+      </div>
+
+      <div class="flex items-center justify-between">
+        <p class="text-lg">Wall</p>
+        <select class="bg-black/10 rounded-xl px-2 py-1">
+          <option>Click & Drag</option>
+          <option>Mouse Touch</option>
+        </select>
+      </div>
+
+      <div class="flex items-center justify-between">
+        <p class="text-lg">Floor</p>
+        <select class="bg-black/10 rounded-xl px-2 py-1">
+          <option>Click & Drag</option>
+          <option>Mouse Touch</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <audio id="audio-player" src="/music.mp3" loop></audio>
+  <div
+    class="fixed top-4 right-4 bg-gray-400 p-0 w-[48px] h-[48px] rounded-3xl"
+  >
+    <button
+      id="music-button"
+      class="bg-white/20 text-white p-3 px-3 rounded-full"
+    >
+      <i id="play-icon" data-lucide="music"></i>
+    </button>
+  </div>
+
+  <canvas id="canvas" class="canvas"></canvas>
+</div>

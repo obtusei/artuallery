@@ -8,7 +8,7 @@ html {
   padding: 0;
   overflow: hidden;
   height: 100%;
-  font-family: "Barlow Condensed", sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 .canvas {
@@ -19,4 +19,30 @@ html {
 
 .yatri {
   font-family: "Yatra One", sans-serif;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.animate-rotate {
+  animation: rotate 0.4s linear infinite;
+}
+
+@keyframes ghum {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-ghum {
+  animation: ghum 4s linear infinite;
+}
+
+.nocursor {
+  cursor: none;
 }

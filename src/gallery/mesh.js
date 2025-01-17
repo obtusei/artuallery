@@ -10,8 +10,17 @@ const loadTexture = async (texture, url) => {
 module.exports = (regl, data, useReflexion) => {
   const wallTexture = regl.texture();
   const floorTexture = regl.texture();
-  loadTexture(wallTexture, "/wall.jpg");
-  loadTexture(floorTexture, "/floor.jpg");
+  //select from wall-select
+  const wallSelect = document.getElementById("wall-select");
+  loadTexture(wallTexture, "/wall_1.jpg");
+  wallSelect.addEventListener("change", () => {
+    loadTexture(wallTexture, wallSelect.value);
+  });
+  const floorSelect = document.getElementById("floor-select");
+  loadTexture(floorTexture, "/floor_1.jpg");
+  floorSelect.addEventListener("change", () => {
+    loadTexture(floorTexture, floorSelect.value);
+  });
   return regl({
     frag: `
         precision lowp float;

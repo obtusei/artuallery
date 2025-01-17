@@ -11,10 +11,24 @@ export function setupArtWork(element) {
 
   api.fetchList(0, 100).then(async (paintings) => {
     const imageID = await paintings[0].image_id;
-    console.log(imageID);
-    const image = await api.fetchImage({ image_id: imageID }, "high");
-    console.log(image);
-    // images.push(image);
+    try {
+      // Fetch the image object using the image ID
+      const image = await api.fetchImage({ image_id: imageID }, "high");
+
+      // Check if image.image is a Blob
+      if (image && image.image instanceof Blob) {
+        // Create a URL for the Blob
+        const imageUrl = URL.createObjectURL(image.image);
+        // console.log("Image URL:", imageUrl);
+
+        // Push the Blob URL into the images array
+        images.push(imageUrl);
+      } else {
+        console.error("The fetched image is not a Blob:", image.image);
+      }
+    } catch (error) {
+      console.error("Error fetching image:", error);
+    }
   });
 
   const columns = 10; // Number of columns in the grid

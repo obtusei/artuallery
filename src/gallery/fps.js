@@ -88,14 +88,61 @@ module.exports = function ({ getGridSegments, getGridParts }, fovY) {
     mouse[1] += dx * sensibility;
   };
 
-  // Mouse input
-  let canvas = document.querySelector("canvas");
-  let pointer = lock(canvas);
-  pointer.on("attain", (movements) => {
-    movements.on("data", (move) => {
-      orientCamera(move.dx, move.dy, mouseSensibility);
+  function mouseDrag() {
+    let dragging = false;
+    let previousMousePosition = { x: 0, y: 0 };
+    // let pointer = lock(canvas);
+
+    window.addEventListener("mousedown", (e) => {
+      dragging = true;
+      previousMousePosition = { x: e.clientX, y: e.clientY };
     });
-  });
+
+    window.addEventListener("mouseup", () => {
+      dragging = false;
+    });
+
+    window.addEventListener("mousemove", (e) => {
+      // if (dragging) {
+      const dx = e.clientX - previousMousePosition.x;
+      const dy = e.clientY - previousMousePosition.y;
+      orientCamera(dx, dy, mouseSensibility);
+      previousMousePosition = { x: e.clientX, y: e.clientY };
+      // }
+    });
+  }
+
+  let canvas = document.querySelector("canvas");
+  let pointer;
+  function pointerControl() {
+    pointer = lock(canvas);
+    pointer.on("attain", (movements) => {
+      movements.on("data", (move) => {
+        orientCamera(move.dx, move.dy, mouseSensibility);
+      });
+    });
+  }
+
+  // Mouse input
+  //get movement-select select from the html and base on the selected value write condition for the pointerControl function and mouseDrag function
+  // let movementSelect = document.getElementById("movement-select");
+  // movementSelect.addEventListener("change", () => {
+  //   if (movementSelect.value === "pointer") {
+  //     // pointerControl();
+  //     mouseDrag();
+  //   } else {
+  //   }
+  // });
+  mouseDrag();
+
+  // let pointer = lock(canvas);
+
+  // mouseDrag();
+  // pointer.on("attain", (movements) => {
+  //   movements.on("data", (move) => {
+  //     orientCamera(move.dx, move.dy, mouseSensibility);
+  //   });
+  // });
 
   // Touch input
   let firstTouch = false;
@@ -103,11 +150,10 @@ module.exports = function ({ getGridSegments, getGridParts }, fovY) {
   let touchTimestamp = 0;
   const handleTouch = (e) => {
     e.preventDefault();
-    if (pointer) {
-      pointer.destroy();
-      pointer = false;
-      // document.querySelector("canvas").requestFullscreen();
-    }
+    // if (movementSelect.value === "pointer" && pointer) {
+    //   pointer.destroy();
+    //   pointer = false;
+    // }
     if (e.type === "touchstart") {
       firstTouch = lastTouch = e.touches[0];
       touchTimestamp = e.timeStamp;

@@ -17,6 +17,9 @@ importers:
       gsap:
         specifier: ^3.12.5
         version: 3.12.5
+      lucide:
+        specifier: ^0.471.0
+        version: 0.471.0
       pointer-lock:
         specifier: ^0.0.4
         version: 0.0.4
@@ -556,6 +559,9 @@ packages:
 
   lru-cache@10.4.3:
     resolution: {integrity: sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==}
+
+  lucide@0.471.0:
+    resolution: {integrity: sha512-q464ocnqGoI1c0aRLiU3l3GYIZBeddlo2s1+XrkkXjfQo+Y5djyNuVH/pa4zMZyM5RHPF4vlf8FBzHJQNzrvPw==}
 
   magic-string@0.30.17:
     resolution: {integrity: sha512-sNPKHvyjVf7gyjwS4xGTaW/mCnF8wnjtifKBEhxfZ7E/S8tQ0rssrwGNn6q8JH/ohItJfSQp9mBtQYuTlH5QnA==}
@@ -1253,6 +1259,8 @@ snapshots:
   lines-and-columns@1.2.4: {}
 
   lru-cache@10.4.3: {}
+
+  lucide@0.471.0: {}
 
   magic-string@0.30.17:
     dependencies:

@@ -23,18 +23,18 @@ document.querySelector("#app").innerHTML = `
     id="welcome-screen"
     class="absolute inset-0 flex items-center justify-center bg-red-200/10"
   >
-    <div id="art-bg" class="absolute inset-0 bg-white"></div>
+    <div id="art-bg" class="absolute hidden md:grid grid-cols-10 inset-0 gap-2"></div>
     <div
       id="welcome-bg"
       class="flex flex-col items-center justify-center text-center gap-4 p-40 rounded-3xl relative"
     >
       <div class="absolute bg-white inset-0 blur-2xl rounded-3xl"></div>
       <div class="z-0 flex flex-col items-center justify-center">
-        <p class="font-semibold text-2xl w1 uppercase">Welcome to</p>
-        <h1 class="text-8xl mt-5 yatri font-bold w1 tracking-widest">
+        <p class="font-semibold text-lg md:text-2xl w1 uppercase">Welcome to</p>
+        <h1 class="text-4xl md:text-8xl mt-5 yatri font-bold w1 tracking-widest">
           Artuallery
         </h1>
-        <p class="text-2xl font-medium opacity-60 mt-6 uppercase w1">
+        <p class="text-lg md:text-2xl font-medium opacity-60 mt-6 uppercase w1">
           A virtual art gallery
         </p>
         <button
@@ -49,7 +49,7 @@ document.querySelector("#app").innerHTML = `
 
   <div
     id="art-info"
-    class="absolute transition-all duration-300 hidden bottom-0 right-4 w-[450px] h-[54%] overflow-y-scroll no-scrollbar bg-white/50 backdrop-blur-xl p-6 rounded-t-3xl"
+    class="absolute transition-all duration-300 hidden left-0 md:left-auto z-z-50 bottom-0 right-4 w-full md:w-[450px] h-[54%] overflow-y-scroll no-scrollbar bg-white/50 backdrop-blur-xl p-6 rounded-t-3xl"
   >
     <div class="flex items-start justify-between gap-10">
       <div class="">
@@ -109,7 +109,7 @@ document.querySelector("#app").innerHTML = `
 
   <div
     id="bottom-control"
-    class="items-center gap-4 absolute bottom-4 left-4 hidden text-sm rounded-xl"
+    class="items-center gap-4 absolute top-20 right-4 md:top-auto md:right-auto md:bottom-4 md:left-4 hidden text-sm rounded-xl"
   >
     <button
       id="fullscreen-button"
@@ -119,7 +119,7 @@ document.querySelector("#app").innerHTML = `
       <i id="minimum" data-lucide="minimize" class="absolute top-[30%] hidden origin-center"></i>
     </button>
     <div
-      class="flex bg-black/10 backdrop-blur-xl text-white rounded-full items-center h-fit p-2 gap-2"
+      class="md:flex bg-black/10 hidden backdrop-blur-xl text-white rounded-full items-center h-fit p-2 gap-2"
     >
       <div id="bottom-info" class="flex shrink-0 items-center gap-2 w-[460px]">
         <div class="flex gap-2 items-center shrink-0 p-2 px-3 rounded-full">
@@ -209,7 +209,7 @@ document.querySelector("#app").innerHTML = `
   <!-- ARTIST INFO -->
   <div
     id="artist-info"
-    class="absolute duration-300 transition-all translate-y-full h-1/2 bottom-0 right-4 w-[450px] overflow-y-scroll no-scrollbar bg-white/50 backdrop-blur-xl p-6 rounded-t-3xl"
+    class="absolute duration-300 transition-all translate-y-full h-1/2 left-4 md:left-auto bottom-0 right-4 md:w-[450px] overflow-y-scroll no-scrollbar bg-white/50 backdrop-blur-xl p-6 rounded-t-3xl"
   >
     <div class="flex items-start justify-between gap-10">
       <div class="">

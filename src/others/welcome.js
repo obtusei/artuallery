@@ -36,10 +36,10 @@ export function setupArtWork(element) {
   const totalImages = columns * rows;
 
   // Create the grid layout
-  element.style.display = "grid";
-  element.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
-  element.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
-  element.style.gap = "10px";
+  // element.style.display = "grid";
+  // element.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
+  // element.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
+  // element.style.gap = "10px";
 
   let index = 0;
 

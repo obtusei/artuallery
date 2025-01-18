@@ -150,14 +150,29 @@ module.exports = function ({ getGridSegments, getGridParts }, fovY) {
   let touchTimestamp = 0;
   const handleTouch = (e) => {
     e.preventDefault();
+    let isMouseEvent =
+      e.type === "mousedown" || e.type === "mousemove" || e.type === "mouseup";
+    let isTouchEvent =
+      e.type === "touchstart" ||
+      e.type === "touchmove" ||
+      e.type === "touchend";
+
+    const getPosition = (e) => {
+      if (isTouchEvent) {
+        return e.touches[0];
+      } else if (isMouseEvent) {
+        return { pageX: e.clientX, pageY: e.clientY };
+      }
+    };
     // if (movementSelect.value === "pointer" && pointer) {
     //   pointer.destroy();
     //   pointer = false;
     // }
-    if (e.type === "touchstart") {
-      firstTouch = lastTouch = e.touches[0];
+    if (e.type === "touchstart" || e.type === "mousedown") {
+      // firstTouch = lastTouch = e.touches[0];
+      firstTouch = lastTouch = getPosition(e);
       touchTimestamp = e.timeStamp;
-    } else if (e.type === "touchend") {
+    } else if (e.type === "touchend" || e.type === "mouseup") {
       const d = Math.hypot(
         firstTouch.pageX - lastTouch.pageX,
         firstTouch.pageY - lastTouch.pageY
@@ -265,19 +280,28 @@ module.exports = function ({ getGridSegments, getGridParts }, fovY) {
         tpProgress = 0;
       }
       firstTouch = lastTouch = false;
-    } else if (e.type === "touchmove" && lastTouch) {
+    } else if (
+      (e.type === "touchmove" || e.type === "mousemove") &&
+      lastTouch
+    ) {
       orientCamera(
-        e.touches[0].pageX - lastTouch.pageX,
-        e.touches[0].pageY - lastTouch.pageY,
+        // e.touches[0].pageX - lastTouch.pageX,
+        // e.touches[0].pageY - lastTouch.pageY,
+        getPosition(e).pageX - lastTouch.pageX,
+        getPosition(e).pageY - lastTouch.pageY,
         touchSensibility
       );
-      lastTouch = e.touches[0];
+      // lastTouch = e.touches[0];
+      lastTouch = getPosition(e);
     }
     //console.log(e);
   };
-  window.addEventListener("touchstart", handleTouch, { passive: false });
-  window.addEventListener("touchmove", handleTouch, { passive: false });
-  window.addEventListener("touchend", handleTouch, { passive: false });
+  canvas.addEventListener("touchstart", handleTouch, { passive: false });
+  canvas.addEventListener("touchmove", handleTouch, { passive: false });
+  canvas.addEventListener("touchend", handleTouch, { passive: false });
+  canvas.addEventListener("mousedown", handleTouch, { passive: false });
+  canvas.addEventListener("mousemove", handleTouch, { passive: false });
+  canvas.addEventListener("mouseup", handleTouch, { passive: false });
 
   // Keyboard input
   var keys = {};

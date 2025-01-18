@@ -133,7 +133,8 @@ module.exports = function ({ getGridSegments, getGridParts }, fovY) {
   //   } else {
   //   }
   // });
-  mouseDrag();
+  // mouseDrag();
+  pointerControl();
 
   // let pointer = lock(canvas);
 

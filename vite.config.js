@@ -9,8 +9,14 @@ export default defineConfig({
     },
   },
   build: {
+    rollupOptions: {
+      output: {
+        format: "es",
+      },
+    },
     commonjsOptions: {
       include: ["node_modules/**"],
     },
   },
+  base: "./",
 });

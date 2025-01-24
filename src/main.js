@@ -1,20 +1,6 @@
 import "./style.css";
 import { setupArtWork } from "./others/welcome";
-import {
-  createIcons,
-  Maximize,
-  CircleArrowUp,
-  Rotate3D,
-  ZoomIn,
-  ChevronRight,
-  Minimize,
-  MousePointerClick,
-  Settings2,
-  Music,
-  X,
-  ChevronDown,
-  ArrowRight,
-} from "lucide";
+
 import initGallery from "./gallery";
 import gsap from "gsap";
 document.querySelector("#app").innerHTML = `
@@ -41,7 +27,7 @@ document.querySelector("#app").innerHTML = `
           id="start-exploring"
           class="bg-black text-white mt-24 flex gap-2 px-4 py-2 text-base rounded-lg w1"
         >
-          Start Exploring <i data-lucide="arrow-right"></i>
+          Start Exploring <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </button>
       </div>
     </div>
@@ -61,7 +47,7 @@ document.querySelector("#app").innerHTML = `
         </button>
       </div>
       <button id="showMore" class="duration-300">
-        <i data-lucide="chevron-down" class=" text-2xl"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide text-2xl lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
       </button>
     </div>
     <div id="paiting-details" class="max-w-lg hidden space-y-2 mt-4">
@@ -78,15 +64,16 @@ document.querySelector("#app").innerHTML = `
       id="fullscreen-button"
       class="bg-white/20 backdrop-blur-xl text-white p-4 px-4 rounded-full"
     >
-      <i id="maximum" data-lucide="maximize" class=""></i>
-      <i id="minimum" data-lucide="minimize" class="absolute top-[30%] hidden origin-center"></i>
+      <svg id="maximum" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-maximize"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
+      <svg id="minimum" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minimize absolute top-[30%] hidden origin-center"><path d="M8 3v3a2 2 0 0 1-2 2H3"/><path d="M21 8h-3a2 2 0 0 1-2-2V3"/><path d="M3 16h3a2 2 0 0 1 2 2v3"/><path d="M16 21v-3a2 2 0 0 1 2-2h3"/></svg>
+      
     </button>
     <div
       class="md:flex bg-black/10 hidden backdrop-blur-xl text-white rounded-full items-center h-fit p-2 gap-2"
     >
       <div id="bottom-info" class="flex shrink-0 items-center gap-2 w-[460px]">
         <div class="flex gap-2 items-center shrink-0 p-2 px-3 rounded-full">
-          <i data-lucide="circle-arrow-up"></i> Use keyboard Arrow keys to move
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-arrow-up"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4"/><path d="M12 16V8"/></svg>Use keyboard Arrow keys to move
         </div>
         <div class="flex gap-2 items-center shrink-0 p-2 px-3 rounded-full">
           <svg
@@ -116,7 +103,7 @@ document.querySelector("#app").innerHTML = `
         id="hide-control-button"
         class="flex hover:bg-white/30 gap-2 items-center p-2 px-2 rounded-full"
       >
-        <i data-lucide="chevron-right"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
       </button>
     </div>
   </div>
@@ -129,7 +116,7 @@ document.querySelector("#app").innerHTML = `
       id="settings-button"
       class="bg-white/20 text-white p-3 px-3 rounded-full"
     >
-      <i data-lucide="settings-2"></i>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings-2"><path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg>
     </button>
     <div id="settings-list" class="mt-4 opacity-0 hidden space-y-3 ">
       
@@ -165,7 +152,8 @@ document.querySelector("#app").innerHTML = `
       id="music-button"
       class="bg-white/20 text-white p-3 px-3 rounded-full"
     >
-      <i id="play-icon" data-lucide="music"></i>
+    <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-music"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+      
     </button>
   </div>
 
@@ -180,7 +168,7 @@ document.querySelector("#app").innerHTML = `
         <h1 id="artist-dob" class="text-xl font-semibold opacity-65"></h1>
       </div>
       <button id="close-artist" class="duration-300">
-        <i data-lucide="x" class=" text-2xl"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x text-2xl"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
       </button>
     </div>
     <div class="max-w-lg space-y-2 mt-4">
@@ -195,22 +183,6 @@ document.querySelector("#app").innerHTML = `
 
 `;
 
-createIcons({
-  icons: {
-    Maximize,
-    CircleArrowUp,
-    Rotate3D,
-    ZoomIn,
-    ChevronRight,
-    Minimize,
-    MousePointerClick,
-    Settings2,
-    Music,
-    X,
-    ChevronDown,
-    ArrowRight,
-  },
-});
 // Get the canvas element
 const canvas = document.getElementById("canvas");
 canvas.width = window.innerWidth;
@@ -321,7 +293,6 @@ fullscreenButton.addEventListener("click", (event) => {
   let minimumIcon = document.getElementById("minimum");
   maximunIcon.classList.add("invisible");
   minimumIcon.classList.remove("hidden");
-  // fullscreenButton.innerHTML = `<i data-lucide="minimize"></i>`;
   if (document.fullscreenElement) {
     document.exitFullscreen();
     maximunIcon.classList.remove("invisible");

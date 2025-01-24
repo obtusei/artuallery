@@ -67,43 +67,6 @@ document.querySelector("#app").innerHTML = `
     <div id="paiting-details" class="max-w-lg hidden space-y-2 mt-4">
       <p id="painting-desc" class="text-xl">
       </p>
-      <h1 class="text-xl font-semibold pt-4">Details</h1>
-      <div class="leading-loose">
-        <b>Date Created: </b><span id="painting-created">1888</span><br />
-        <b>Place of Origin: </b><span id="painting-origin">Arles, France</span
-        ><br />
-        <b>Dimensions: </b
-        ><span id="painting-dimensions">73.6 x 92.3 cm (29 x 36 5/8 in.)</span
-        ><br />
-        <b>Medium: </b><span id="painting-medium">Oil on Canvas</span><br />
-        <b>Style: </b><span id="painting-style">Post Impressionism</span><br />
-        <b>Category: </b
-        ><span id="painting-category"
-          >Painting and Sculpture of Europe, Essentials</span
-        ><br />
-      </div>
-      <ul id="painting-tags" class="flex gap-2 text-sm overflow-x-scroll no-scrollbar">
-        <li
-          class="bg-gray-100/60 text-gray-600 rounded-xl w-fit px-4 py-2 h-fit shrink-0 font-medium"
-        >
-          Oil on Canvas
-        </li>
-        <li
-          class="bg-gray-100/60 text-gray-600 rounded-xl w-fit px-4 py-2 h-fit shrink-0 font-medium"
-        >
-          Interiors
-        </li>
-        <li
-          class="bg-gray-100/60 text-gray-600 rounded-xl w-fit px-4 py-2 h-fit shrink-0 font-medium"
-        >
-          Chairs
-        </li>
-        <li
-          class="bg-gray-100/60 text-gray-600 rounded-xl w-fit px-4 py-2 h-fit shrink-0 font-medium"
-        >
-          Bed
-        </li>
-      </ul>
     </div>
   </div>
 
@@ -301,25 +264,25 @@ settingsButton.addEventListener("click", (event) => {
 });
 
 // Audio Player
-const audioPlayer = document.getElementById("audio-player");
-const musicButton = document.getElementById("music-button");
-const musicPlayer = document.getElementById("music-player");
-const playIcon = document.getElementById("play-icon");
-musicButton.addEventListener("click", (event) => {
-  event.preventDefault();
-  if (musicButton.classList.contains("playing")) {
-    audioPlayer.pause();
-    playIcon.classList.remove("animate-ghum");
-  } else {
-    audioPlayer.play();
-    playIcon.classList.add("animate-ghum");
-  }
-  musicButton.classList.toggle("playing");
-});
 
+const musicPlayer = document.getElementById("music-player");
 //play audio on dom load
 document.addEventListener("DOMContentLoaded", () => {
+  const audioPlayer = document.getElementById("audio-player");
+  const musicButton = document.getElementById("music-button");
+  const playIcon = document.getElementById("play-icon");
   audioPlayer.play();
+  musicButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    if (musicButton.classList.contains("playing")) {
+      audioPlayer.pause();
+      playIcon.classList.remove("animate-ghum");
+    } else {
+      audioPlayer.play();
+      playIcon.classList.add("animate-ghum");
+    }
+    musicButton.classList.toggle("playing");
+  });
   playIcon.classList.add("animate-ghum");
   musicButton.classList.add("playing");
 });

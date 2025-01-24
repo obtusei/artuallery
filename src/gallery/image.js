@@ -2,7 +2,8 @@
 
 const api = require("../api/api");
 const selectedApi = new URLSearchParams(window.location.search).get("api");
-const dataAccess = require("../api/artic"); //api["artic"]; //api[selectedApi] || api[api.default];
+// const dataAccess = require("../api/artic"); //api["artic"]; //api[selectedApi] || api[api.default];
+const dataAccess = require("../api/local"); //api["artic"]; //api[selectedApi] || api[api.default];
 const text = require("./text");
 
 let paintingCache = {};
@@ -40,13 +41,14 @@ async function loadImage(regl, p, res) {
             .MAX_TEXTURE_MAX_ANISOTROPY_EXT
         )
       : 0;
-    console.log(aniso);
+    // console.log(aniso);
   }
 
-  let image, title;
+  let image, title, author;
   try {
     const data = await dataAccess.fetchImage(p, dynamicQual(res));
-    title = data.title;
+    title = data.title || "Untitled";
+    author = (await dataAccess.fetchAuthorDetail(data.author_id)).name;
     // Resize image to a power of 2 to use mipmap (faster than createImageBitmap resizing)
     image = await createImageBitmap(data.image);
     ctx.drawImage(image, 0, 0, resizeCanvas.width, resizeCanvas.height);
@@ -64,7 +66,12 @@ async function loadImage(regl, p, res) {
       aniso,
       flipY: true,
     }),
-    (width) => text.init(unusedTextures.pop() || regl.texture, title, width),
+    (width) =>
+      text.init(
+        unusedTextures.pop() || regl.texture,
+        title + " - " + author,
+        width
+      ),
     image.width / image.height,
   ];
 }

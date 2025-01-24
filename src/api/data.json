@@ -1,0 +1,395 @@
+[
+  {
+    "id": 1,
+    "name": "Amresh Shah",
+    "bio": "",
+    "images": [
+      {
+        "title": "Echoes of Eternity",
+        "desc": "The image captures a stark reality – a once-mighty glacier, now a skeletal reminder of a changing climate. I remember trekking through this region as a child, the air crisp and invigorating. To witness this transformation firsthand is a poignant reminder of the fragility of our planet and the urgency of action.",
+        "file": "/images/amresh_shah/1.jpg",
+        "author_id": 1
+      },
+      {
+        "title": "The Fury of the Monsoon",
+        "desc": "This photograph was taken during a devastating monsoon season. The raw power of nature is undeniable, leaving behind a trail of destruction. I remember the fear and uncertainty that gripped our community as the floods rose, a stark reminder of our vulnerability to the changing climate.",
+        "file": "/images/amresh_shah/2.jpg",
+        "author_id": 1
+      },
+      {
+        "title": "A Parched Earth",
+        "desc": "The once-verdant fields are now barren, a testament to the relentless grip of drought. This image resonates deeply with me, as I've witnessed firsthand the struggles of farmers in my community who have lost their livelihoods due to unpredictable rainfall patterns.",
+        "file": "/images/amresh_shah/3.jpg",
+        "author_id": 1
+      },
+      {
+        "title": "A Silent Symphony",
+        "desc": "This image captures the haunting silence of a forest once teeming with life. The loss of biodiversity is a silent crisis, robbing us of the intricate web of life that sustains us. I remember the vibrant sounds of the forest as a child, a stark contrast to the eerie quietude captured in this photograph.",
+        "file": "/images/amresh_shah/4.jpg",
+        "author_id": 1
+      },
+      {
+        "title": "A Journey of Despair",
+        "desc": "This image depicts the faces of those forced to leave their homes due to climate-induced disasters. Their eyes reflect the pain and uncertainty of displacement. I have interacted with many such families, their stories a poignant reminder of the human cost of climate change.",
+        "file": "/images/amresh_shah/5.jpg",
+        "author_id": 1
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Krishala Gurung",
+    "bio": "Hello, I am Krishala Gurung, a 20-year-old from Balaju. I have completed my 12th level of education and I am currently focusing on learning a new language. Whenever I have free time, I love going for rides to peaceful places as it helps me recharge and connect with myself. My dream is to become a veterinarian, and I am determined to achieve it.",
+    "images": [
+      {
+        "title": "Whisper of the branches",
+        "desc": "This image shows a group of children playing in a tree which is a natural element of an environment. While this picture doesn't directly represents climate crisis but it reflects some indirect implications, such as urban pressure on natural resources and the necessity of trees for environmental sustainability. The tree in the image looks stressed because it is shedding more leaves than usual so it is a symptoms of changing climate conditions like heatwaves, droughts,  pollution which directly impacts local ecosystem!!!",
+        "file": "/images/krishala_gurung/1.jpg",
+        "author_id": 2
+      },
+      {
+        "title": "Tired Mama",
+        "desc": "This image shows an area with visible plastic waste and ashes formed by burning woods. The non-biodegradable like plastics contributes directly to the climate crisis,beacause the production of plastics relies on fossile fuel such as petroleum and natural gas. ",
+        "file": "/images/krishala_gurung/2.jpg",
+        "author_id": 2
+      },
+      {
+        "title": "The path through shadows",
+        "desc": "This image portrays housing injustice by highlighting the disparity between living conditions in underprivileged neighborhoods and those in well developed urban areas. The alley lack proper lighting which not only reduces safety but also shows the neglect of basic urban planning in lower income neighborhoods. Housing injustice is not just a matter of space,it is a systemic issue tied to broader social and economic inequalities.",
+        "file": "/images/krishala_gurung/3.jpg",
+        "author_id": 2
+      },
+      {
+        "title": "The compulsion",
+        "desc": "This picture shows woman roasting corn using wood as fuel. This activity contributes to the climate crisis in several ways.For eg: Deforestation and carbon emissions, air pollution, inefficient combustion etc.Burning wood releases carbon dioxide and other greenhouse gases into the atmosphere, directly contributing to global warming. It can also contribute to deforestation,reducing the planet's natural carbon absorption capacity.",
+        "file": "/images/krishala_gurung/4.jpg",
+        "author_id": 2
+      },
+      {
+        "title": "Lights in the Darkness",
+        "desc": "This image captures a dimly lit street scene in an urban area. The uneven quality of the infrastructure like uneven and narrow road surface, dim lighting suggests a possible neglect of low income neighborhoods highlighting systemic housing inequalit",
+        "file": "/images/krishala_gurung/5.jpg",
+        "author_id": 2
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Liya Tamang",
+    "bio": "My name is Liya Tamang, and I am a student pursuing a bachelor's degree in psychology at Padmakanya Multiple Campus. I enjoy spending time in my own company and value moments of self-reflection and peace.",
+    "images": [
+      {
+        "title": "",
+        "desc": "Our locality, near a fuel station, faces the dual threat of petroleum emissions contributing to carbon pollution and the escalating climate crisis. The station’s negligence could spark a devastating fire, highlighting how environmental hazards disproportionately impact vulnerable communities. Housing injustice deepens this crisis, as low-income residents in unsafe, overcrowded homes are more exposed to these risks. The combination of climate change and inadequate housing policies underscores the need for systemic change, ensuring that marginalized communities receive protection from both environmental degradation and unsafe living conditions. The consequences of this neglect are felt most deeply by those who can least afford it. ",
+        "file": "/images/liya_tamang/1.jpg",
+        "author_id": 3
+      },
+      {
+        "title": "",
+        "desc": "In our neighborhood, the limited number of trees contributes to rising temperatures, exacerbating the effects of the climate crisis. The lack of green spaces means less natural cooling, making the area unbearable during hot weather. Additionally, many houses are made of tin, which traps heat, making living conditions even worse. This combination of environmental and housing challenges is a clear example of housing injustice, as vulnerable communities suffer most from the escalating climate crisis. Without proper infrastructure and green spaces, these residents are left exposed to both extreme heat and inadequate housing conditions, highlighting the urgent need for change.",
+        "file": "/images/liya_tamang/2.jpg",
+        "author_id": 3
+      },
+      {
+        "title": "",
+        "desc": "In our tole, many people still rely on animal husbandry, keeping domestic animals in their homes. This practice contributes to pollution, as livestock produce methane, a potent greenhouse gas, and waste that can degrade the environment. At the same time, housing conditions are poor, with families living in overcrowded, substandard homes ill-equipped to manage the pollution. This combination of climate crisis and housing injustice disproportionately affects vulnerable communities, exposing them to environmental harm and unsafe living conditions. The lack of proper infrastructure and sustainable practices highlights the urgent need for solutions that address both housing and environmental challenges. ",
+        "file": "/images/liya_tamang/3.jpg",
+        "author_id": 3
+      },
+      {
+        "title": "",
+        "desc": "In our area, families live without proper land ownership, constantly fearing eviction. As the climate crisis worsens, extreme weather makes their daily lives even harder. Women sit outside, discussing their struggles and hopes for a secure future. Housing injustice and environmental challenges continue to affect them, emphasizing the need for fair policies and sustainable solutions to protect vulnerable communities like ours. ",
+        "file": "/images/liya_tamang/4.jpg",
+        "author_id": 3
+      },
+      {
+        "title": "",
+        "desc": "Our tole is located by the side of river, the water once pure now carries the waste of makeshift toilets dumped upstream.The community, living in overcrowded, poorly built homes,has no access to proper sanitation or clean water.This neglect, a result of housing injustice, fueled a growing health crisis, as waterborne diseases spread among the vulnerable. Climate change worsened the situation, with rising temperature. The polluted river, had become a symbol of the intersection between environmental degradation and social inequality. The community's fight for justice was now a fight for survival. ",
+        "file": "/images/liya_tamang/5.jpg",
+        "author_id": 3
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Mahima",
+    "bio": "Hi, I am Mahima, a 21-year-old Nepali student, driven by my love for learning and personal growth. I am currently in my second year of a bachelor's degree in business, balancing my studies with work as a primary teacher in a Montessori school and a receptionist at a hotel where I get to interact with guests from around the world.Family means everything to me, and I am committed to working hard to support them while staying true to my values of loyalty, determination, and focus. I am someone who believes in chasing dreams while constantly striving to grow as a person. In my free time, I enjoy writing and listening to music. My ultimate goal is to build a successful career as a businesswoman. ",
+    "images": [
+      {
+        "title": "",
+        "desc": "In a small street, families struggled daily. 'We have to stay here,' they often said, as the weather changed unpredictably. Sometimes it was too hot, sometimes too cold, and sometimes heavy rains flooded the area. Life was hard, but they had no other choice. They endured, hoping for a better tomorrow.",
+        "file": "/images/mahima/1.jpg",
+        "author_id": 4
+      },
+      {
+        "title": "",
+        "desc": "Our area is densely populated and poverty forces us into short, tin houses. The low roof traps heat, making life unbearable. High temperatures worsen diseases, spreading among us. Climate change intensifies the heat while housing injustice leaves us vulnerable, caught in cycle of hardship and despair. ",
+        "file": "/images/mahima/2.jpg",
+        "author_id": 4
+      },
+      {
+        "title": "",
+        "desc": "We live near the river where higher societys dumb sewage, causing water pollution and spreading diseases in our community. They blame us for polluting water while trying to remove us from the area. Housing injustice and climate crisis leave us trapped in suffering with no one to defend us.",
+        "file": "/images/mahima/3.jpg",
+        "author_id": 4
+      },
+      {
+        "title": "",
+        "desc": "In our area, people live in small houses without owning the land. The roofs and walls are weak, making it hard to face the changing weather caused by the climate crisis. Without proper ownership, families worry about losing their homes. This shows the problem of housing injustice and the need for fair policies to protect people like us.",
+        "file": "/images/mahima/4.jpg",
+        "author_id": 4
+      },
+      {
+        "title": "",
+        "desc": "People here struggle daily, living near the river with no other options. When floods come, their homes are swept away, yet they rebuild every time. Climate change worsens the river's rage, and housing injustice leaves them vulnerable. Their resilience is admirable, but how long can they endure this endless cycle?",
+        "file": "/images/mahima/5.jpg",
+        "author_id": 4
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Mohammed Belall",
+    "bio": "My name is Mohammed Belall, a Rohingya refugee from Myanmar currently residing in Nepal since 2018. Although I completed Class 10 in Myanmar, I did not have the opportunity to continue my education. Despite these challenges, I have been dedicated to pursuing my passions and developing my skills. With 4 years of experience, I am now a content creator, video editor, videographer, photographer, and motivational speaker within my community. I am deeply passionate about social work, learning new skills, and sharing knowledge to inspire and uplift others. ",
+    "images": [
+      {
+        "title": "A Call for Climate Justice",
+        "desc": "A young boy sits on chopped logs, embodying the weight of deforestation and climate change. His solemn gaze reflects the harsh reality of poverty forcing unsustainable practices, while the backdrop of felled trees symbolizes the cost of exploiting nature. This image is a call to action—a reminder that the most vulnerable bear the brunt of a crisis they didn’t create, yet hold the hope for a more sustainable future. ",
+        "file": "/images/mohammed_belall/1.JPG",
+        "author_id": 5
+      },
+      {
+        "title": "A Story of Survival and Sustainability",
+        "desc": "A young man chops wood in a stark urban-rural landscape, symbolizing the struggle between survival and sustainability. The scene reflects communities relying on wood for fuel, caught in a cycle of deforestation and environmental degradation. Scarred hills and drying laundry hint at daily resilience amid resource scarcity. This image underscores the human cost of climate change and the urgent need for clean energy, reforestation, and sustainable solutions to protect both livelihoods and the planet",
+        "file": "/images/mohammed_belall/2.JPG",
+        "author_id": 5
+      },
+      {
+        "title": "A Community's Struggle and Hope for Sustainable Change",
+        "desc": "A small community, an elderly man chops firewood as residents watch, grappling with the effects of deforestation and the climate crisis. Once lush forests have been depleted, forcing reliance on wood for energy due to a lack of alternatives. The younger generation feels the weight of environmental degradation but sees hope in planting trees, adopting solar energy, and pursuing sustainable solutions. Amid hardship, their resilience reflects humanity's connection to and responsibility for nature.",
+        "file": "/images/mohammed_belall/3.jpg",
+        "author_id": 5
+      },
+      {
+        "title": "A Call for Inclusive and Sustainable Urban Policies",
+        "desc": "In a corner of the city, makeshift shelters highlight intersecting crises of climate, housing, health, and education. Marginalized families face unsafe homes, poor sanitation, and disease, while children struggle to access education. Nearby, luxury apartments reflect the growing inequality. This scene urges us to adopt inclusive housing, equitable education, and sustainable urban policies to ensure dignity and opportunity for all.",
+        "file": "/images/mohammed_belall/4.JPG",
+        "author_id": 5
+      },
+      {
+        "title": "Addressing Systemic Inequities for a Sustainable Future",
+        "desc": "This image portrays resilience amidst systemic challenges, highlighting issues like the climate crisis, housing inequality, health risks, and waste management. The makeshift homes on the hill reflect marginalized communities forced into unsafe living conditions. Climate change increases risks like landslides and flooding, while poor sanitation and waste management expose residents to health hazards, especially children and the elderly. Environmental degradation worsens as waste pollutes nearby ecosystems. This image calls for urgent action on housing justice, climate adaptation, healthcare access, and sustainable waste management to ensure dignity and safety for all",
+        "file": "/images/mohammed_belall/5.PNG",
+        "author_id": 5
+      },
+      {
+        "title": "The Urgent Need for Systemic Change in Vulnerable Communities",
+        "desc": "This photo depicts two schoolchildren navigating a neglected path strewn with waste, highlighting systemic challenges in housing, education, health, and waste management. The informal settlement's fragile homes and unsanitary conditions hinder their safety and well-being, exposing them to disease and impacting their education. The lack of proper housing and waste management reflects systemic neglect, while environmental barriers contribute to health risks and educational struggles. Yet, the children's determination to attend school amidst adversity symbolizes hope and resilience. This moment underscores the urgent need for improved housing, waste management, education, and healthcare to break cycles of inequality and empower communities.",
+        "file": "/images/mohammed_belall/6.PNG",
+        "author_id": 5
+      },
+      {
+        "title": "A Muddy Path to School",
+        "desc": "This photo captures two young schoolgirls walking along a muddy and uneven path beside a canal on their way to school. With backpacks on their shoulders, they carefully navigate the difficult terrain, a testament to their determination to pursue education despite challenging conditions. A motorcycle passes by on the same path, emphasizing the lack of proper infrastructure. The scene highlights the everyday struggles faced by many children in rural or underdeveloped areas.",
+        "file": "/images/mohammed_belall/7.JPG",
+        "author_id": 5
+      },
+      {
+        "title": "The Role of Green Spaces in Cities",
+        "desc": " Amid the urban sprawl, this patch of green stands as a vital link to sustainable living. A lone farmer tends to crops, highlighting the clash between urban expansion and the need to preserve arable land. Surrounding colorful buildings reflect housing demands, while unmanaged soil waste signals poor urban planning, harming ecosystems and livelihoods. This space could educate urban communities on sustainable farming and environmental balance. It underscores the urgency for policies supporting urban agriculture, waste management, and housing justice to build cities that protect green spaces, promote food security, and ensure equitable living.",
+        "file": "/images/mohammed_belall/8.JPG",
+        "author_id": 5
+      },
+      {
+        "title": "Children Engaged in Outdoor Play and Activities",
+        "desc": "A  group of young children participate in a playful activity outdoors, led by a girl in a red outfit. The scene takes place in a modest neighborhood with simple houses and a dirt road, capturing the joy and camaraderie of childhood in a community setting.",
+        "file": "/images/mohammed_belall/9.jpg",
+        "author_id": 5
+      },
+      {
+        "title": "Preparing Fresh Fish Outdoors",
+        "desc": "A person is cleaning and preparing fish on a wet concrete surface. A knife is being used to scale the fish, while a bowl nearby holds more fish in water. A green bucket and other utensils are also visible, suggesting an outdoor kitchen setup. The scene captures the raw and practical aspects of food preparation. ",
+        "file": "/images/mohammed_belall/10.JPG",
+        "author_id": 5
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Pratikshya Khadka",
+    "bio": "My name is Pratikshya Khadka, and I am currently pursuing a Bachelor's degree in Social Work at Kadambari Memorial College. I am interning with the Milijuli Foundation, where I focus on child welfare projects, particularly addressing child labor and ensuring the rights and well-being of children in marginalized communities. My studies and work inspire me to make a positive impact on the lives of vulnerable children and contribute to creating lasting social change.",
+    "images": [
+      {
+        "title": "River Pollution",
+        "desc": "Once a lifeline, the river is now a dumping ground, suffocated by waste and pollution. Its once-pristine waters, vital for drinking, bathing, and farming, are now toxic, spreading illness and despair. Plastic, food waste, and industrial byproducts choke the river, reflecting humanity's disregard for the environment. Communities that once thrived by its banks now face waterborne diseases and scarcity, as the river's lifegiving essence diminishes. Without waste management or care, this vital resource has become a symbol of environmental decay. If action isn't taken, the river's cry will echo as a reminder of humanity's neglect and its lasting consequences",
+        "file": "/images/pratikshya_khadka/1.jpg",
+        "author_id": 6
+      },
+      {
+        "title": "Impact of Overcrowding and Loss of Green Spaces in Urban Areas",
+        "desc": "The rapid expansion of urban housing has replaced natural spaces with concrete structures, leaving overcrowded areas with no greenery. Families face poor living conditions, with limited privacy, clean air, or water. The lack of trees and parks deprives children of play and connection with nature, affecting their development. Constant noise and pollution create stressful environments, worsening mental health and social tensions. Unsustainable urban planning leads to environmental degradation, poor public health, and rising crime. This interconnected crisis of overcrowding and resource strain demands sustainable urban development, prioritizing human well-being and environmental health to restore balance and improve urban living.",
+        "file": "/images/pratikshya_khadka/2.jpg",
+        "author_id": 6
+      },
+      {
+        "title": "Urban Congestion and the Need for Sustainable City Planning",
+        "desc": " This photo captures the bustling reality of Kathmandu's narrow streets, where motorcycles, pedestrians, and vehicles compete for space amid vibrant shopfronts and towering buildings. The congestion reflects a typical urban struggle, with poor infrastructure failing to meet the demands of a growing population. While the economic activity keeps the city alive, the overcrowding raises serious concerns, particularly for emergency vehicles. Navigating these chaotic streets becomes a daunting challenge for ambulances and fire trucks, putting lives at risk. This scene is a stark reminder of how rapid urbanization compromises mobility and safety, calling for better urban planning and emergency solutions.",
+        "file": "/images/pratikshya_khadka/3.jpg",
+        "author_id": 6
+      },
+      {
+        "title": "The Struggle of the Homeless",
+        "desc": "Living on the streets is a daily battle for survival. Without shelter, they face the harsh cold of winter, the scorching summer heat, and relentless rain. Each season brings new challenges—frostbite, dehydration, and illness. Invisible to society, the homeless are denied access to basic needs like healthcare and education. Their physical and mental health deteriorates as they struggle for food, water, and safety. This is not just poverty but a societal failure to care for its most vulnerable. They deserve dignity, shelter, and support. Communities must act to provide affordable housing and rebuild lives, ensuring no one is left behind.",
+        "file": "/images/pratikshya_khadka/4.jpg",
+        "author_id": 6
+      },
+      {
+        "title": "The Threat of Neglected Old Houses in Basantapur",
+        "desc": "The Threat of Neglected Old Houses in Basantapur: In Basantapur, many old houses like this still exist, posing a serious danger, especially during earthquakes. These structures are weak and poorly maintained, making them unsafe for residents and the surrounding community. The risk increases because Basantapur is an earthquake-prone area, and such houses can easily collapse, causing harm. It is important to focus on restoring or rebuilding these houses with stronger materials while preserving their historical value. Proper urban planning and safety measures are needed to protect lives and heritage in this area. ",
+        "file": "/images/pratikshya_khadka/5.jpg",
+        "author_id": 6
+      },
+      {
+        "title": "",
+        "desc": "",
+        "file": "/images/pratikshya_khadka/6.jpg",
+        "author_id": 6
+      },
+      {
+        "title": "",
+        "desc": "",
+        "file": "/images/pratikshya_khadka/7.jpg",
+        "author_id": 6
+      },
+      {
+        "title": "",
+        "desc": "",
+        "file": "/images/pratikshya_khadka/8.jpg",
+        "author_id": 6
+      },
+      {
+        "title": "",
+        "desc": "",
+        "file": "/images/pratikshya_khadka/9.jpg",
+        "author_id": 6
+      },
+      {
+        "title": "",
+        "desc": "",
+        "file": "/images/pratikshya_khadka/10.jpg",
+        "author_id": 6
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Salina Dhimal",
+    "bio": "I am Salina Dhimal.I am from Balaju. My hobby is sleeping and I have completed my +2 and I am learning Palour. ",
+    "images": [
+      {
+        "title": "",
+        "desc": "Climate change and environmental degradation are interconnected crises that require immediate action. The polluted state of our surroundings, as seen in this image, highlights the urgent need for sustainable waste management and policies that prioritize environmental protection. Individual efforts, community awareness, and strong governmental initiatives must come together to mitigate these effects. By addressing these challenges collectively, we can work towards a cleaner, healthier planet for future generations. ",
+        "file": "/images/salina_dhimal/1.jpg",
+        "author_id": 7
+      },
+      {
+        "title": "",
+        "desc": "The climate crisis is not only about melting glaciers or rising sea levels; it is also deeply connected to urban challenges such as overcrowding, pollution, and strained infrastructure. As cities grow and resources become scarcer, it is imperative to adopt sustainable urban planning, reduce emissions, and promote green solutions. By prioritizing the environment alongside development, we can create resilient, livable spaces for current and future generations.",
+        "file": "/images/salina_dhimal/2.jpg",
+        "author_id": 7
+      },
+      {
+        "title": "",
+        "desc": "Climate change disproportionately affects the most vulnerable populations, forcing them to rely on basic and often unsustainable means of survival. This highlights the urgent need for equitable solutions that prioritize clean energy access, sustainable development, and climate resilience for all. By fostering a sense of collective responsibility, we can ensure that no one is left behind in the fight against climate change.",
+        "file": "/images/salina_dhimal/3.jpg",
+        "author_id": 7
+      },
+      {
+        "title": "",
+        "desc": "The image underscores how systemic neglect in housing policies and urban planning perpetuates inequalities while simultaneously exacerbating the climate crisis. Addressing such injustices requires prioritizing sustainable infrastructure and equitable access to resources to build resilient and inclusive communities.",
+        "file": "/images/salina_dhimal/4.jpg",
+        "author_id": 7
+      },
+      {
+        "title": "",
+        "desc": "This image underscores how housing injustice arises from poor urban planning and socio-economic inequalities. The blending of commercial and residential zones and the absence of proper infrastructure reflect systemic neglect. Addressing this requires comprehensive urban development policies that prioritize affordable housing, proper zoning, and access to safe and sanitary living conditions for all.",
+        "file": "/images/salina_dhimal/5.jpg",
+        "author_id": 7
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Shafique Aalam",
+    "bio": "My name is Shafique Aalam, and I am originally from the Arakan State in Myanmar. I currently live in the Kapan Ram Mandir area and am a Grade 11 student studying in the Management department at Shree Gram Shikshya Mandir Secondary School. I enjoy traveling and am honored to serve as the leader of the Rohingya committee. I am deeply passionate about social work and aspire to become a successful businessman in the future.",
+    "images": [
+      {
+        "title": "Description of the Rohingya Camp",
+        "desc": "I am describing the situation of the Rohingya community living near Ram Mandir, located in Kapan, Budhanilkantha, Ward No. 11, Kathmandu. The image reflects the painful living conditions of the Rohingya people, who endure numerous challenges in their daily lives. Due to Nepal's diverse climatic conditions, the landforms are affected, posing additional risks to the community. The Rohingya houses, exposed to frequent monsoon rains, are situated on steep and unstable terrain, making them highly vulnerable to natural calamities. Their current situation is further complicated by the difficulty in securing land. Many landowners refuse to rent their land to the Rohingya community. As a result, the landowner of their current settlement has imposed high rent, recently raising it to around NPR 12 lakh 80 thousand per year. This financial burden leaves the community in a constant state of struggle and uncertainly.",
+        "file": "/images/shafique_aalam/1.jpg",
+        "author_id": 8
+      },
+      {
+        "title": "Insight into the Rohingya Settlement",
+        "desc": "This image is not just a representation but a testimony to the challenges faced by the Rohingya community. The houses are seen built on sparse, steep land, which is prone to instability and risks due to climate change and geographical conditions in Nepal. The photo also highlights the poor condition of the roads leading to their settlement, reflecting the lack of infrastructure and support. These scattered houses on fragile landforms stand as a stark reminder of the dire need for sustainable solutions to improve the living conditions of the Rohingya community.",
+        "file": "/images/shafique_aalam/2.jpg",
+        "author_id": 8
+      },
+      {
+        "title": "",
+        "desc": "I have presented this picture to illustrate the situation of the residents shown in it. Despite living in such a steep and challenging terrain, they have managed to adapt and create a livable environment for themselves, as clearly depicted in the picture. Although they had to leave their country and settle in another, they have been sustaining their lives by utilizing the traditional skills and knowledge passed down from their ancestors. In this picture, you can see handicrafts made by the Rohingya, such as pirka chairs, among other items. Despite their circumstances, they have blended into this new place by applying the skills they learned in their homeland. This includes activities like agriculture, poultry farming, and handicraft production, which help them earn a living.",
+        "file": "/images/shafique_aalam/3.jpg",
+        "author_id": 8
+      },
+      {
+        "title": "",
+        "desc": "The bridge shown in this picture was built by the Rohingyas to address the challenges posed by the difficult terrain of the area. Despite their limited resources, they constructed this bridge to make movement possible. Sewerage pipes are connected underneath the bridge, which become submerged in water during the rainy season. As the water flow increases, it creates additional difficulties for the Rohingyas, making it harder for them to move across.",
+        "file": "/images/shafique_aalam/4.jpg",
+        "author_id": 8
+      },
+      {
+        "title": "",
+        "desc": "This picture shows the houses built on the vulnerable terrain where the Rohingya are located. It highlights the potential damage caused by landslides, which occur every year in this area. If floods and landslides can cause such severe destruction even during the recent winter season, one can only imagine how dire the situation might become in the face of more significant problems in the future. This is not just a picture—it serves as a representation of the challenges and risks that may arise in the coming years.",
+        "file": "/images/shafique_aalam/5.jpg",
+        "author_id": 8
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Sunita Khatri",
+    "bio": "My name is Sunita Khatri, and I am a first-year BBS student with a passion for storytelling and connecting with others through shared experiences. I am an inquisitive learner who enjoys exploring new ideas and embracing creativity in everyday life. With a warm personality and a positive outlook, I aspire to make meaningful contributions wherever I go. No matter the situation, I always try to keep a smile on my face.",
+    "images": [
+      {
+        "title": "Urban Alleyway Amidst Historic Architecture",
+        "desc": "This is a narrow street where people can walk, and motorcycles can pass, but no cars can fit through. If someone falls ill and an ambulance is needed, there's no way an ambulance can reach this place because the road is too narrow. Even if there's an earthquake, people won't have a safe escape, as the buildings are so close together that they could collapse, trapping everyone inside. The houses are in such a state, and the road itself is so tight and treacherous that people are afraid to walk on it. This is how life is in this place. The road is not just a simple pathway; it's a challenge, a constant reminder of how the town's infrastructure fails to support its people in times of need.",
+        "file": "/images/sunita_khatri/1.jpg",
+        "author_id": 9
+      },
+      {
+        "title": "Daily water collection in a historical square",
+        "desc": "Due to the earthquake, water stopped reaching homes, and people had to carry water in buckets, step by step, to ensure it came properly. Clothes could be washed, and food was purified during that time. The earthquake of 2072 (2015) caused this situation, and now, after 9 years, people still face challenges. The stone water sources (Dhungyé Dhara) are being overused, and people still come to collect water and carry it back to their homes. These water sources are often used for bathing and washing clothes, which is why there are always long lines. At times, the demand is high, causing problems. Even after the earthquake, water availability was slightly affected, but after heavy rains, impurities have entered the water sources, leading to concerns about its cleanliness. Therefore, further improvements in the water supply lines are necessary, and it is crucial to maintain clean water access.",
+        "file": "/images/sunita_khatri/2.jpg",
+        "author_id": 9
+      },
+      {
+        "title": "Urban scars on Nature",
+        "desc": "This image showcases a polluted river running through an urban landscape. The once vibrant waterway is now strewn with trash, rocks, and patches of overgrown vegetation, a testament to the neglect and environmental challenges it faces. On one side, a walkway with trees and fencing hints at an attempt to maintain the area, but the overall scene reflects the pressing need for conservation and cleanup efforts. This river’s plight is a reminder of how urban development and human activities can severely impact natural ecosystems, urging a call for better care and preservation of our waterways.",
+        "file": "/images/sunita_khatri/3.jpg",
+        "author_id": 9
+      },
+      {
+        "title": "Story dog in the sunlit street",
+        "desc": "This dog tells a heartbreaking story of survival on the streets. Homeless and neglected, it roams aimlessly, its frail body a testament to hunger and illness. With a dull, patchy coat and weary eyes, the dog bears scars of a harsh life, possibly from abuse or frequent fights for scraps of food. People walk past, some indifferent, others hostile, shooing it away or showing disdain. Yet, amidst this despair, an occasional kind soul offers food, a fleeting moment of relief in its otherwise bleak existence. The dog's story is a silent plea for compassion, reminding us of the countless lives struggling for survival in the shadows of human society.",
+        "file": "/images/sunita_khatri/4.jpg",
+        "author_id": 9
+      },
+      {
+        "title": "Jamuna's journey",
+        "desc": "Jamuna, a single mother, sustains her three children through hard work after her husband left. She weaves yarn for just 30 rupees per kilogram and washes clothes at others' houses. With no one to care for her children, she cannot send her youngest son to school. Her meager earnings barely cover rent and household expenses. Unable to afford new clothes, she relies on old ones given by her employers for herself and her children. Earlier, the children’s school provided food and supplies, but that support has stopped, making her struggle even harder as she manages everything alone. Life is extremely challenging for her.",
+        "file": "/images/sunita_khatri/5.jpg",
+        "author_id": 9
+      }
+    ]
+  }
+]

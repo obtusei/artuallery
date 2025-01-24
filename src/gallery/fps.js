@@ -209,7 +209,6 @@ module.exports = function ({ getGridSegments, getGridParts }, fovY) {
           z += dz * rayStep;
           walls = [...walls, ...getGridSegments(x, z)];
         }
-        console.log([...new Set(walls)]);
         let intersections = [...new Set(walls)]
           .map(([a, b]) => wallProject(pos, touchDir, a, b))
           .filter(

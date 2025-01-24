@@ -1,36 +1,18 @@
-const api = require("../api/artic");
+const api = require("../api/local");
 
 export function setupArtWork(element) {
   const images = [
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcFjdefo7IMBJWFavZbMXo3gUzjs5Ppt31CKOsP3n7F_ye118iIXf4_GG9ECBJQ-LeWe1fxv6ZFtN3FqdgpPEwhA", // Replace these with your actual image URLs
-    "https://m.media-amazon.com/images/I/71fwPFoOGCL.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Edvard_Munch_-_Vampire_%281895%29_-_Google_Art_Project.jpg/800px-Edvard_Munch_-_Vampire_%281895%29_-_Google_Art_Project.jpg",
-    "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSZcOPJMG1QkUwZClpPHZUwI45J6XQJRyil-il32-21mLfG_V-17ql7ZPLl5lYh0xXM6wPT06a4vhxfAmWc81vzoPtWsBxaoG-OhuuHUyc",
-    "https://lh3.googleusercontent.com/ci/AL18g_Rfqyk6VUKEGh78wLGSTR8HOMQqJMzW6fz1aK4oEUentLkLdlSPsYYEBELF1cSAiOFE_mNA3w=s1200",
+    "/images/amresh_shah/1.jpg",
+    "/images/amresh_shah/2.jpg",
+    "/images/krishala_gurung/1.jpg",
+    "/images/krishala_gurung/2.jpg",
+    "/images/liya_tamang/1.jpg",
+    "/images/liya_tamang/2.jpg",
+    "/images/mahima/1.jpg",
+    "/images/mahima/2.jpg",
+    "/images/mohammed_belall/1.JPG",
+    "/images/mohammed_belall/2.JPG",
   ];
-
-  api.fetchList(0, 100).then(async (paintings) => {
-    const imageID = await paintings[0].image_id;
-    try {
-      // Fetch the image object using the image ID
-      const image = await api.fetchImage({ image_id: imageID }, "high");
-
-      // Check if image.image is a Blob
-      if (image && image.image instanceof Blob) {
-        // Create a URL for the Blob
-        const imageUrl = URL.createObjectURL(image.image);
-        // console.log("Image URL:", imageUrl);
-
-        // Push the Blob URL into the images array
-        images.push(imageUrl);
-      } else {
-        console.error("The fetched image is not a Blob:", image.image);
-      }
-    } catch (error) {
-      console.error("Error fetching image:", error);
-    }
-  });
-
   const columns = 10; // Number of columns in the grid
   const rows = 10; // Number of rows in the grid
   const totalImages = columns * rows;

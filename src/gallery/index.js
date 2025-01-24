@@ -1,6 +1,7 @@
 "use strict";
 
-const { fetchDetail, fetchArtist } = require("../api/artic");
+// const { fetchDetail, fetchArtist } = require("../api/artic");
+const { fetchAuthorDetail } = require("../api/local");
 
 module.exports = function initGallery(canvas) {
   var useReflexion = false;
@@ -118,46 +119,41 @@ module.exports = function initGallery(canvas) {
           let paintingTitle = document.getElementById("painting-title");
           let paintingPainter = document.getElementById("painting-painter");
           let paintingDesc = document.getElementById("painting-desc");
-          let paintingCreated = document.getElementById("painting-created");
-          let paintingOrigin = document.getElementById("painting-origin");
-          let paintingDimensions = document.getElementById(
-            "painting-dimensions"
-          );
-          let paintingMedium = document.getElementById("painting-medium");
-          let paintingStyle = document.getElementById("painting-style");
-          let paintingCategory = document.getElementById("painting-category");
-          let paintingTags = document.getElementById("painting-tags");
+          // let paintingCreated = document.getElementById("painting-created");
+          // let paintingOrigin = document.getElementById("painting-origin");
+          // let paintingDimensions = document.getElementById(
+          //   "painting-dimensions"
+          // );
+          // let paintingMedium = document.getElementById("painting-medium");
+          // let paintingStyle = document.getElementById("painting-style");
+          // let paintingCategory = document.getElementById("painting-category");
+          // let paintingTags = document.getElementById("painting-tags");
           const artInfo = document.getElementById("art-info");
-          const data = await fetchDetail(painting.id);
-          console.log(data);
-          artInfo.classList.remove("hidden");
-          paintingTitle.innerHTML = painting.title || "Unknown Title";
-          paintingPainter.innerHTML = painting.artist_title || "Unknown Artist";
-          paintingDesc.innerHTML = data.description || "No Description";
-          paintingCreated.innerHTML = data.date_display || "N/A";
-          paintingOrigin.innerHTML = data.place_of_origin || "N/A";
-          paintingDimensions.innerHTML = data.dimensions || "N/A";
-          paintingMedium.innerHTML = data.medium_display || "N/A";
-          paintingStyle.innerHTML = data.style_title || "N/A";
-          paintingCategory.innerHTML = data.category_titles.join(", ") || "N/A";
-          data.classification_titles.forEach((item, index) => {
-            const newLi = document.createElement("li");
-            newLi.textContent = item;
-            newLi.className =
-              "bg-gray-100 text-gray-600 rounded-xl w-fit px-4 py-2 h-fit shrink-0 font-medium";
-            paintingTags.appendChild(newLi);
-          });
+          // const data = await fetchDetail(painting.id);
+          // console.log(painting);
+
           let artistTitle = document.getElementById("artist-title");
           let artistDesc = document.getElementById("artist-desc");
           let artistDob = document.getElementById("artist-dob");
 
-          if (data.artist_id) {
-            const artistData = await fetchArtist(data.artist_id);
-            artistTitle.innerHTML = artistData.title || "Unknown Artist";
-            artistDesc.innerHTML = artistData.description || "No Description";
-            artistDob.innerHTML =
-              artistData.birth_date + " - " + artistData.death_date || "N/A";
+          if (painting.author_id) {
+            var artistData = await fetchAuthorDetail(painting.author_id);
+            // console.log(artistData);
+            artistTitle.innerHTML = artistData.name || "Unknown Artist";
+            artistDesc.innerHTML = artistData.desc || "No Description";
+            artistDob.innerHTML = `${artistData.images} images` || "N/A";
           }
+
+          artInfo.classList.remove("hidden");
+          paintingTitle.innerHTML = painting.title || "Unknown Title";
+          paintingPainter.innerHTML = artistData.name || "Unknown Artist";
+          paintingDesc.innerHTML = painting.desc || "No Description";
+          // paintingCreated.innerHTML = data.date_display || "N/A";
+          // paintingOrigin.innerHTML = data.place_of_origin || "N/A";
+          // paintingDimensions.innerHTML = data.dimensions || "N/A";
+          // paintingMedium.innerHTML = data.medium_display || "N/A";
+          // paintingStyle.innerHTML = data.style_title || "N/A";
+          // paintingCategory.innerHTML = data.category_titles.join(", ") || "N/A";
         }
       });
       // Update the previous position

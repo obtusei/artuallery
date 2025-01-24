@@ -1,15 +1,23 @@
 "strict mode";
 
-const textHeight = 32;
+const textHeight = 48; // Increase the text height for better visibility
 const textCanvas = document.createElement("canvas");
 textCanvas.style.backgroundColor = "rgba(0,0,0,0)";
 const maxWidth = (textCanvas.width = textCanvas.height = 1024);
 const ctx = textCanvas.getContext("2d");
 ctx.mozImageSmoothingEnabled = false;
 ctx.webkitImageSmoothingEnabled = false;
-ctx.font = textHeight + "px Verdana";
-ctx.textBaseline = "bottom";
-ctx.fillStyle = "#aaa";
+ctx.font = textHeight + "px 'Poppins', sans-serif"; // Use Poppins font
+ctx.textBaseline = "top"; // Align text to the top
+ctx.fillStyle = "#555555"; // Use dark gray color for better contrast
+ctx.strokeStyle = "#000000"; // Use black color for the text border
+ctx.lineWidth = 2; // Set the width of the text border
+
+
+
+// Add padding from the top
+const paddingTop = 20;
+
 
 // from https://delphic.me.uk/tutorials/webgl-text
 function createMultilineText(ctx, textToWrite, maxWidth, text) {

@@ -2,7 +2,6 @@
 const mat4 = require("gl-mat4");
 const vec3 = require("gl-vec3");
 const lock = require("pointer-lock");
-//const footstep = require('./footstep')();
 
 const mouseSensibility = 0.002;
 const touchSensibility = 0.008;
@@ -91,7 +90,6 @@ module.exports = function ({ getGridSegments, getGridParts }, fovY) {
   function mouseDrag() {
     let dragging = false;
     let previousMousePosition = { x: 0, y: 0 };
-    // let pointer = lock(canvas);
 
     window.addEventListener("mousedown", (e) => {
       dragging = true;
@@ -103,47 +101,51 @@ module.exports = function ({ getGridSegments, getGridParts }, fovY) {
     });
 
     window.addEventListener("mousemove", (e) => {
-      // if (dragging) {
-      const dx = e.clientX - previousMousePosition.x;
-      const dy = e.clientY - previousMousePosition.y;
-      orientCamera(dx, dy, mouseSensibility);
-      previousMousePosition = { x: e.clientX, y: e.clientY };
-      // }
+      if (dragging) {
+        const dx = e.clientX - previousMousePosition.x;
+        const dy = e.clientY - previousMousePosition.y;
+        orientCamera(dx, dy, mouseSensibility);
+        previousMousePosition = { x: e.clientX, y: e.clientY };
+      }
     });
   }
 
   let canvas = document.querySelector("canvas");
-  let pointer;
-  function pointerControl() {
-    pointer = lock(canvas);
-    pointer.on("attain", (movements) => {
-      movements.on("data", (move) => {
-        orientCamera(move.dx, move.dy, mouseSensibility);
-      });
-    });
+
+  function enablePointerLock() {
+    canvas.requestPointerLock =
+      canvas.requestPointerLock ||
+      canvas.mozRequestPointerLock ||
+      canvas.webkitRequestPointerLock;
+    canvas.requestPointerLock();
   }
 
+  function pointerLockChange() {
+    if (
+      document.pointerLockElement === canvas ||
+      document.mozPointerLockElement === canvas ||
+      document.webkitPointerLockElement === canvas
+    ) {
+      document.addEventListener("mousemove", updateCamera, false);
+    } else {
+      document.removeEventListener("mousemove", updateCamera, false);
+    }
+  }
+
+  function updateCamera(e) {
+    const dx = e.movementX || e.mozMovementX || e.webkitMovementX || 0;
+    const dy = e.movementY || e.mozMovementY || e.webkitMovementY || 0;
+    orientCamera(dx, dy, mouseSensibility);
+  }
+
+  document.addEventListener("pointerlockchange", pointerLockChange, false);
+  document.addEventListener("mozpointerlockchange", pointerLockChange, false);
+  document.addEventListener("webkitpointerlockchange", pointerLockChange, false);
+
+  canvas.addEventListener("click", enablePointerLock, false);
+
   // Mouse input
-  //get movement-select select from the html and base on the selected value write condition for the pointerControl function and mouseDrag function
-  // let movementSelect = document.getElementById("movement-select");
-  // movementSelect.addEventListener("change", () => {
-  //   if (movementSelect.value === "pointer") {
-  //     // pointerControl();
-  //     mouseDrag();
-  //   } else {
-  //   }
-  // });
-  // mouseDrag();
-  pointerControl();
-
-  // let pointer = lock(canvas);
-
-  // mouseDrag();
-  // pointer.on("attain", (movements) => {
-  //   movements.on("data", (move) => {
-  //     orientCamera(move.dx, move.dy, mouseSensibility);
-  //   });
-  // });
+  mouseDrag();
 
   // Touch input
   let firstTouch = false;
@@ -165,12 +167,7 @@ module.exports = function ({ getGridSegments, getGridParts }, fovY) {
         return { pageX: e.clientX, pageY: e.clientY };
       }
     };
-    // if (movementSelect.value === "pointer" && pointer) {
-    //   pointer.destroy();
-    //   pointer = false;
-    // }
     if (e.type === "touchstart" || e.type === "mousedown") {
-      // firstTouch = lastTouch = e.touches[0];
       firstTouch = lastTouch = getPosition(e);
       touchTimestamp = e.timeStamp;
     } else if (e.type === "touchend" || e.type === "mouseup") {
@@ -179,7 +176,6 @@ module.exports = function ({ getGridSegments, getGridParts }, fovY) {
         firstTouch.pageY - lastTouch.pageY
       );
       if (e.timeStamp - touchTimestamp < durationToClick && d < distToClick) {
-        // compute touch vector
         let tmp = [],
           tmp1 = [],
           tmp2 = [];
@@ -192,7 +188,6 @@ module.exports = function ({ getGridSegments, getGridParts }, fovY) {
         vec3.transformMat4(touchDir, touchDir, mat4.invert(tmp, view));
         vec3.sub(touchDir, touchDir, pos);
         vec3.normalize(touchDir, touchDir);
-        // project to the floor and the ceilling
         let { intersection: floorPos, dist: floorDist } = planeProject(
           pos,
           touchDir,
@@ -204,8 +199,6 @@ module.exports = function ({ getGridSegments, getGridParts }, fovY) {
           0,
           yLimitTouch,
         ]);
-        //console.log(floorDist, ceilingDist);
-        // get the walls suceptibles to intersect with the raycast
         let [x, , z] = pos;
         let [dx, , dz] = touchDir;
         dx /= Math.hypot(dx, dz);
@@ -217,7 +210,6 @@ module.exports = function ({ getGridSegments, getGridParts }, fovY) {
           walls = [...walls, ...getGridSegments(x, z)];
         }
         console.log([...new Set(walls)]);
-        // project to walls
         let intersections = [...new Set(walls)]
           .map(([a, b]) => wallProject(pos, touchDir, a, b))
           .filter(
@@ -227,9 +219,7 @@ module.exports = function ({ getGridSegments, getGridParts }, fovY) {
               dist < touchDistLimit
           );
         intersections.sort((a, b) => a.dist - b.dist);
-        //console.log(intersections);
         if (intersections.length !== 0) {
-          // teleport to wall
           let {
             intersection: [xpos, , zpos],
           } = intersections[0];
@@ -237,8 +227,6 @@ module.exports = function ({ getGridSegments, getGridParts }, fovY) {
           for (const [a, b] of nearParts) {
             const midX = (a[0] + b[0]) / 2;
             const midZ = (a[1] + b[1]) / 2;
-            //console.log(Math.hypot(xpos - midX, zpos - midZ));
-            // Snap to the front of the painting
             if (Math.hypot(xpos - midX, zpos - midZ) < paintingSnapDist) {
               xpos = midX;
               zpos = midZ;
@@ -248,13 +236,11 @@ module.exports = function ({ getGridSegments, getGridParts }, fovY) {
           vec3.copy(startPos, pos);
           vec3.set(endPos, xpos, pos[1], zpos);
         } else if (floorDist > 0) {
-          // teleport to floor
           vec3.copy(startPos, pos);
           vec3.set(endPos, floorPos[0], pos[1], floorPos[2]);
         } else {
           return;
         }
-        // snap position to allowed area
         let collisions = getGridSegments(endPos[0], endPos[2])
           .map(([[ax, ay], [bx, by]]) => [
             [ax, height, ay],
@@ -263,19 +249,15 @@ module.exports = function ({ getGridSegments, getGridParts }, fovY) {
           .map(([a, b]) => ({ a, b, dist: sdLine(endPos, a, b, tmp1, tmp2) }))
           .filter(({ dist }) => dist < viewingDist);
         collisions.sort((a, b) => a.dist - b.dist);
-        //console.log(collisions);
         if (collisions.length !== 0) {
           for (let { a, b } of collisions) {
             const distance = viewingDist - sdLine(endPos, a, b, tmp1, tmp2);
             if (distance < 0) continue;
-            // Segment normal
             const delta = vec3.sub(tmp1, b, a).reverse();
             delta[0] = -delta[0];
             vec3.normalize(delta, delta);
             vec3.scale(delta, delta, distance);
-            // Offset by viewingDist from the wall
             vec3.add(endPos, endPos, delta);
-            //console.log(distance, delta);
           }
         }
         tpProgress = 0;
@@ -286,16 +268,12 @@ module.exports = function ({ getGridSegments, getGridParts }, fovY) {
       lastTouch
     ) {
       orientCamera(
-        // e.touches[0].pageX - lastTouch.pageX,
-        // e.touches[0].pageY - lastTouch.pageY,
         getPosition(e).pageX - lastTouch.pageX,
         getPosition(e).pageY - lastTouch.pageY,
         touchSensibility
       );
-      // lastTouch = e.touches[0];
       lastTouch = getPosition(e);
     }
-    //console.log(e);
   };
   canvas.addEventListener("touchstart", handleTouch, { passive: false });
   canvas.addEventListener("touchmove", handleTouch, { passive: false });
@@ -339,15 +317,10 @@ module.exports = function ({ getGridSegments, getGridParts }, fovY) {
       return proj;
     },
     tick: ({ time }) => {
-      // Delta time
       const dt = time - lastTime;
       lastTime = time;
-      // Cache matrix
-      //if (!rotate && dir[0] === 0 && dir[2] === 0 && walkTime === 0.25) return;
-      //rotate = false;
-      // Force, Up and Forward direction
       let tmp1 = [0, 0, 0],
-        tmp2 = []; //reduce gc performance problem
+        tmp2 = [];
       vec3.set(forward, 1, 0, 0);
       vec3.set(up, 0, 1, 0);
       vec3.rotateY(force, dir, tmp1, -mouse[1]);
@@ -355,13 +328,10 @@ module.exports = function ({ getGridSegments, getGridParts }, fovY) {
       vec3.rotateX(forward, forward, tmp1, -mouse[0]);
       vec3.rotateX(up, up, tmp1, -mouse[0]);
       vec3.normalize(force, force);
-      //console.log(forward, up);
-      // Move
       const speed = run ? runSpeed : walkSpeed;
       vec3.scale(force, force, speed * dt);
       pos[1] = height;
       const newPos = vec3.add([], pos, force);
-      // Collide
       const collisions = getGridSegments(newPos[0], newPos[2])
         .map(([[ax, ay], [bx, by]]) => [
           [ax, height, ay],
@@ -378,7 +348,6 @@ module.exports = function ({ getGridSegments, getGridParts }, fovY) {
           vec3.add(force, force, delta);
         }
       }
-      // Apply walk y motion
       const d = vec3.len(force);
       if (d === 0 && walkTime !== 0.25) {
         walkTime = (Math.abs(((walkTime + 0.5) % 1) - 0.5) - 0.25) * 0.8 + 0.25;
@@ -386,15 +355,12 @@ module.exports = function ({ getGridSegments, getGridParts }, fovY) {
       }
       const lastWalkTime = walkTime;
       walkTime += d / (run ? runStepLen : walkStepLen);
-      //console.log(d / (run ? runStepLen : walkStepLen) / dt * 60);
       pos[1] = height + stepHeight * Math.cos(2 * Math.PI * walkTime);
       vec3.add(pos, pos, force);
-      // Teleportation transition
       if (tpProgress < 1) {
         tpProgress += dt / tpDuration;
         tpProgress = Math.min(tpProgress, 1);
         const t = easeInOutQuad(tpProgress);
-        //console.log(t, tpProgress, pos);
         vec3.set(
           pos,
           lerp(t, startPos[0], endPos[0]),
@@ -402,19 +368,12 @@ module.exports = function ({ getGridSegments, getGridParts }, fovY) {
           lerp(t, startPos[2], endPos[2])
         );
       }
-      // Filter mouse mouvement
       fmouse[0] = rotationFilter * mouse[0] + (1 - rotationFilter) * fmouse[0];
       fmouse[1] = rotationFilter * mouse[1] + (1 - rotationFilter) * fmouse[1];
-      // Update view
       mat4.identity(view);
       mat4.rotateX(view, view, fmouse[0]);
       mat4.rotateY(view, view, fmouse[1]);
       mat4.translate(view, view, vec3.scale(tmp1, pos, -1));
-      // Update footstep
-      /*if (walkTime > 0.5)
-				footstep.update(pos, force, up);
-			if (lastWalkTime % 1 <= 0.5 && walkTime % 1 > 0.5)
-				footstep.step([pos[0], 0, pos[2]], run);*/
       return;
     },
   };

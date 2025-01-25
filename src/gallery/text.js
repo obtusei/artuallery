@@ -131,9 +131,9 @@ export function draw(regl) {
     const y = event.clientY - rect.top;
 
     // Check if click is within text bounds
-    if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
-      alert("Text clicked: I love " + currentText);
-    }
+    // if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
+    //   alert("Text clicked: I love " + currentText);
+    // }
   });
 
   return drawCommand;

@@ -7,7 +7,7 @@ const loadTexture = async (texture, url) => {
   texture({ data, wrapS: "repeat", wrapT: "repeat" });
 };
 
-module.exports = (regl, data, useReflexion) => {
+export default function mesh(regl, data, useReflexion) {
   const wallTexture = regl.texture();
   const floorTexture = regl.texture();
   //select from wall-select
@@ -85,4 +85,4 @@ module.exports = (regl, data, useReflexion) => {
 
     elements: new Uint32Array(data.elements),
   });
-};
+}

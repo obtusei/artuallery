@@ -1,8 +1,8 @@
-import "./style.css";
+// import "./style.css";
 import { setupArtWork } from "./others/welcome";
-
 import initGallery from "./gallery";
-import gsap from "gsap";
+import { gsap } from "gsap";
+
 document.querySelector("#app").innerHTML = `
     <div class="canvas-container">
   <div

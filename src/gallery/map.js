@@ -257,7 +257,7 @@ function genGrid(segments, n, r) {
   return { getGridSegments, getGridParts, getAreaIndex, placements };
 }
 
-module.exports = function (
+export default function map(
   n = mapSize,
   r = cellSize,
   w = wallThickness,
@@ -322,4 +322,4 @@ module.exports = function (
     normal,
     elements,
   };
-};
+}

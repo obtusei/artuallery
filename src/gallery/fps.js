@@ -1,7 +1,10 @@
 "use strict";
-const mat4 = require("gl-mat4");
-const vec3 = require("gl-vec3");
-const lock = require("pointer-lock");
+// const mat4 = require("gl-mat4");
+// const vec3 = require("gl-vec3");
+// const lock = require("pointer-lock");
+import mat4 from "gl-mat4";
+import vec3 from "gl-vec3";
+import lock from "pointer-lock";
 
 const mouseSensibility = 0.002;
 const touchSensibility = 0.008;
@@ -61,7 +64,7 @@ const lerp = (x, a, b) => (1 - x) * a + x * b;
 const easeInOutQuad = (x) =>
   x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
 
-module.exports = function ({ getGridSegments, getGridParts }, fovY) {
+function fps({ getGridSegments, getGridParts }, fovY) {
   var mouse = [0, (Math.PI * 3) / 4];
   var fmouse = [0, (Math.PI * 3) / 4];
   var dir = [0, 0, 0];
@@ -140,7 +143,11 @@ module.exports = function ({ getGridSegments, getGridParts }, fovY) {
 
   document.addEventListener("pointerlockchange", pointerLockChange, false);
   document.addEventListener("mozpointerlockchange", pointerLockChange, false);
-  document.addEventListener("webkitpointerlockchange", pointerLockChange, false);
+  document.addEventListener(
+    "webkitpointerlockchange",
+    pointerLockChange,
+    false
+  );
 
   canvas.addEventListener("click", enablePointerLock, false);
 
@@ -376,4 +383,6 @@ module.exports = function ({ getGridSegments, getGridParts }, fovY) {
       return;
     },
   };
-};
+}
+
+export default fps;

@@ -1,10 +1,13 @@
 "strict mode";
 
-const api = require("../api/api");
+// const api = require("../api/api");
+import api from "../api/api";
 const selectedApi = new URLSearchParams(window.location.search).get("api");
 // const dataAccess = require("../api/artic"); //api["artic"]; //api[selectedApi] || api[api.default];
-const dataAccess = require("../api/local"); //api["artic"]; //api[selectedApi] || api[api.default];
-const text = require("./text");
+// const dataAccess = require("../api/local"); //api["artic"]; //api[selectedApi] || api[api.default];
+import dataAccess from "../api/local";
+// const text = require("./text");
+import { init } from "./text";
 
 let paintingCache = {};
 let unusedTextures = [];
@@ -46,9 +49,9 @@ async function loadImage(regl, p, res) {
 
   let image, title, author;
   try {
-    const data = await dataAccess.fetchImage(p, dynamicQual(res));
+    const data = await dataAccess().fetchImage(p, dynamicQual(res));
     title = data.title || "Untitled";
-    author = (await dataAccess.fetchAuthorDetail(data.author_id)).name;
+    author = (await dataAccess().fetchAuthorDetail(data.author_id)).name;
     // Resize image to a power of 2 to use mipmap (faster than createImageBitmap resizing)
     image = await createImageBitmap(data.image);
     ctx.drawImage(image, 0, 0, resizeCanvas.width, resizeCanvas.height);
@@ -67,19 +70,16 @@ async function loadImage(regl, p, res) {
       flipY: true,
     }),
     (width) =>
-      text.init(
-        unusedTextures.pop() || regl.texture,
-        title + " - " + author,
-        width
-      ),
+      init(unusedTextures.pop() || regl.texture, title + " - " + author, width),
     image.width / image.height,
   ];
 }
 
-module.exports = {
-  fetch: (regl, count = 10, res = "low", cbOne, cbAll) => {
-    const from = Object.keys(paintingCache).length;
-    dataAccess.fetchList(from, count).then((paintings) => {
+export const fetch = (regl, count = 10, res = "low", cbOne, cbAll) => {
+  const from = Object.keys(paintingCache).length;
+  dataAccess()
+    .fetchList(from, count)
+    .then((paintings) => {
       count = paintings.length;
       // console.log("Images fetched:", paintings);
       paintings.map((p) => {
@@ -94,24 +94,32 @@ module.exports = {
         });
       });
     });
-  },
-  load: (regl, p, res = "low") => {
-    if (p.tex || p.loading) return;
-    p.loading = true;
-    loadImage(regl, p, res).then(([tex, textGen]) => {
-      p.loading = false;
-      p.tex = tex;
-      p.text = textGen(p.width);
-    });
-  },
-  unload: (p) => {
-    if (p.tex) {
-      unusedTextures.push(p.tex);
-      p.tex = undefined;
-    }
-    if (p.text) {
-      unusedTextures.push(p.text);
-      p.text = undefined;
-    }
-  },
 };
+export const load = (regl, p, res = "low") => {
+  if (p.tex || p.loading) return;
+  p.loading = true;
+  loadImage(regl, p, res).then(([tex, textGen]) => {
+    p.loading = false;
+    p.tex = tex;
+    p.text = textGen(p.width);
+  });
+};
+
+export const unload = (p) => {
+  if (p.tex) {
+    unusedTextures.push(p.tex);
+    p.tex = undefined;
+  }
+  if (p.text) {
+    unusedTextures.push(p.text);
+    p.text = undefined;
+  }
+};
+
+export default function texture() {
+  return {
+    fetch,
+    load,
+    unload,
+  };
+}

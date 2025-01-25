@@ -1,18 +1,7 @@
 const api = require("../api/local");
 
 export function setupArtWork(element) {
-  const images = [
-    "/images/amresh_shah/1.jpg",
-    "/images/amresh_shah/2.jpg",
-    "/images/krishala_gurung/1.jpg",
-    "/images/krishala_gurung/2.jpg",
-    "/images/liya_tamang/1.jpg",
-    "/images/liya_tamang/2.jpg",
-    "/images/mahima/1.jpg",
-    "/images/mahima/2.jpg",
-    "/images/mohammed_belall/1.JPG",
-    "/images/mohammed_belall/2.JPG",
-  ];
+  const images = ["/1.webp", "/2.webp", "/3.webp", "/4.webp", "/5.webp"];
   const columns = 10; // Number of columns in the grid
   const rows = 10; // Number of rows in the grid
   const totalImages = columns * rows;
@@ -73,3 +62,5 @@ export const setupCounter = (element) => {
   element.addEventListener("click", () => setCounter(counter + 1));
   setCounter(0);
 };
+
+module.exports = { setupArtWork };

@@ -1,10 +1,12 @@
 "use strict";
 
-const text = require("./text");
-const card = require("./info");
-module.exports = (regl) => {
-  const drawText = text.draw(regl);
-  const drawCard = card.draw(regl);
+// const text = require("./text");
+import { init, draw } from "./text";
+// import card from "./info";
+// const card = require("./info");
+export default function painting(regl) {
+  const drawText = draw(regl);
+  // const drawCard = card.draw(regl);
   const painting = regl({
     frag: `
 	precision lowp float;
@@ -182,4 +184,4 @@ module.exports = (regl) => {
     drawText(batch);
     // drawCard(batch);
   };
-};
+}

@@ -128,62 +128,60 @@ function drawCard(ctx, title, description) {
   return buttonY; // Return the button's Y position for hit testing
 }
 
-module.exports = {
-  init(texture, cardData, width = maxWidth) {
-    const { title, description, fullDetails } = cardData;
+export function init(texture, cardData, width = maxWidth) {
+  const { title, description, fullDetails } = cardData;
 
-    // Draw initial card
-    const buttonY = drawCard(ctx, title, description);
+  // Draw initial card
+  const buttonY = drawCard(ctx, title, description);
 
-    // Create popover for full details
-    const popover = createPopover(fullDetails);
+  // Create popover for full details
+  const popover = createPopover(fullDetails);
 
-    // Create invisible button overlay
-    const button = createButton("Read More", (e) => {
-      popover.style.display =
-        popover.style.display === "none" ? "block" : "none";
-      popover.style.left = `${e.clientX}px`;
-      popover.style.top = `${e.clientY}px`;
+  // Create invisible button overlay
+  const button = createButton("Read More", (e) => {
+    popover.style.display = popover.style.display === "none" ? "block" : "none";
+    popover.style.left = `${e.clientX}px`;
+    popover.style.top = `${e.clientY}px`;
 
-      // Close popover when clicking outside
-      const closePopover = (evt) => {
-        if (!popover.contains(evt.target) && evt.target !== button) {
-          popover.style.display = "none";
-          document.removeEventListener("click", closePopover);
-        }
-      };
-      document.addEventListener("click", closePopover);
-    });
-
-    // Position button over the drawn button
-    button.style.position = "fixed";
-    button.style.opacity = "0";
-    document.body.appendChild(button);
-
-    // Update button position on scroll/resize
-    const updateButtonPosition = () => {
-      const rect = cardCanvas.getBoundingClientRect();
-      button.style.left = `${rect.left + CARD_MARGIN + CARD_PADDING}px`;
-      button.style.top = `${rect.top + buttonY}px`;
-      button.style.width = "150px";
-      button.style.height = `${BUTTON_HEIGHT}px`;
+    // Close popover when clicking outside
+    const closePopover = (evt) => {
+      if (!popover.contains(evt.target) && evt.target !== button) {
+        popover.style.display = "none";
+        document.removeEventListener("click", closePopover);
+      }
     };
+    document.addEventListener("click", closePopover);
+  });
 
-    window.addEventListener("scroll", updateButtonPosition);
-    window.addEventListener("resize", updateButtonPosition);
-    updateButtonPosition();
+  // Position button over the drawn button
+  button.style.position = "fixed";
+  button.style.opacity = "0";
+  document.body.appendChild(button);
 
-    return texture({
-      data: cardCanvas,
-      min: "mipmap",
-      mipmap: "nice",
-      flipY: true,
-    });
-  },
+  // Update button position on scroll/resize
+  const updateButtonPosition = () => {
+    const rect = cardCanvas.getBoundingClientRect();
+    button.style.left = `${rect.left + CARD_MARGIN + CARD_PADDING}px`;
+    button.style.top = `${rect.top + buttonY}px`;
+    button.style.width = "150px";
+    button.style.height = `${BUTTON_HEIGHT}px`;
+  };
 
-  draw(regl) {
-    return regl({
-      frag: `
+  window.addEventListener("scroll", updateButtonPosition);
+  window.addEventListener("resize", updateButtonPosition);
+  updateButtonPosition();
+
+  return texture({
+    data: cardCanvas,
+    min: "mipmap",
+    mipmap: "nice",
+    flipY: true,
+  });
+}
+
+export function draw(regl) {
+  return regl({
+    frag: `
         precision mediump float;
         uniform sampler2D tex;
         varying vec2 uv;
@@ -193,7 +191,7 @@ module.exports = {
           gl_FragColor = color;
         }`,
 
-      vert: `
+    vert: `
         precision highp float;
         uniform mat4 proj, view, model;
         uniform float yScale;
@@ -207,27 +205,26 @@ module.exports = {
           gl_Position = proj * view * mpos;
         }`,
 
-      attributes: {
-        pos: [0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0],
-      },
+    attributes: {
+      pos: [0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0],
+    },
 
-      uniforms: {
-        model: regl.prop("textmodel"),
-        tex: regl.prop("text"),
-      },
+    uniforms: {
+      model: regl.prop("textmodel"),
+      tex: regl.prop("text"),
+    },
 
-      count: 6,
+    count: 6,
 
-      blend: {
-        enable: true,
-        func: {
-          srcRGB: "src alpha",
-          srcAlpha: "one minus src alpha",
-          dstRGB: "one minus src alpha",
-          dstAlpha: 1,
-        },
-        color: [0, 0, 0, 0],
+    blend: {
+      enable: true,
+      func: {
+        srcRGB: "src alpha",
+        srcAlpha: "one minus src alpha",
+        dstRGB: "one minus src alpha",
+        dstAlpha: 1,
       },
-    });
-  },
-};
+      color: [0, 0, 0, 0],
+    },
+  });
+}

@@ -1,9 +1,10 @@
 "use strict";
 
 // const { fetchDetail, fetchArtist } = require("../api/artic");
-const { fetchAuthorDetail } = require("../api/local");
+// const { fetchAuthorDetail } = require("../api/local");
+import local from "../api/local";
 
-module.exports = function initGallery(canvas) {
+export default function initGallery(canvas) {
   var useReflexion = false;
   var showStats = false;
 
@@ -137,7 +138,9 @@ module.exports = function initGallery(canvas) {
           let artistDob = document.getElementById("artist-dob");
 
           if (painting.author_id) {
-            var artistData = await fetchAuthorDetail(painting.author_id);
+            var artistData = await local().fetchAuthorDetail(
+              painting.author_id
+            );
             // console.log(artistData);
             artistTitle.innerHTML = artistData.name || "Unknown Artist";
             artistDesc.innerHTML = artistData.desc || "No Description";
@@ -175,4 +178,4 @@ module.exports = function initGallery(canvas) {
     });
     stats.end();
   });
-};
+}

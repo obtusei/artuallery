@@ -8,15 +8,12 @@ export default defineConfig({
       stream: "stream-browserify",
     },
   },
+  optimizeDeps: {
+    include: ["gsap"],
+  },
   build: {
-    rollupOptions: {
-      output: {
-        format: "es",
-      },
-    },
     commonjsOptions: {
       include: ["node_modules/**"],
     },
   },
-  base: "./",
 });

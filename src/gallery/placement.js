@@ -1,6 +1,8 @@
 "use strict";
-const texture = require("./image");
-const mat4 = require("gl-mat4");
+// const texture = require("./image");
+import texture from "./image";
+import mat4 from "gl-mat4";
+// const mat4 = require("gl-mat4");
 
 const renderDist = 20;
 const loadDist = 20;
@@ -29,7 +31,7 @@ const culling = (ppos, pangle, fovx, { vseg, angle }) => {
   return true;
 };
 
-module.exports = (regl, { placements, getAreaIndex }) => {
+export default function placement(regl, { placements, getAreaIndex }) {
   //console.log(areas);
   let batch = [],
     shownBatch = [];
@@ -89,7 +91,7 @@ module.exports = (regl, { placements, getAreaIndex }) => {
     });
   };
   // Fetch the first textures
-  texture.fetch(regl, 20, dynamicRes, loadPainting, () => (fetching = false));
+  texture().fetch(regl, 20, dynamicRes, loadPainting, () => (fetching = false));
   return {
     update: (pos, angle, fovX) => {
       // Estimate player position index
@@ -98,14 +100,14 @@ module.exports = (regl, { placements, getAreaIndex }) => {
       // Unload far textures
       batch
         .slice(0, Math.max(0, index - unloadDist))
-        .map((t) => texture.unload(t));
-      batch.slice(index + unloadDist).map((t) => texture.unload(t));
+        .map((t) => texture().unload(t));
+      batch.slice(index + unloadDist).map((t) => texture().unload(t));
       // Load close textures
       shownBatch = batch.slice(
         Math.max(0, index - renderDist),
         index + renderDist
       );
-      shownBatch.map((t) => texture.load(regl, t, dynamicRes));
+      shownBatch.map((t) => texture().load(regl, t, dynamicRes));
       // Frustum / Orientation culling
       shownBatch = shownBatch.filter(
         (t) => t.tex && culling(pos, angle, fovX, t)
@@ -113,7 +115,7 @@ module.exports = (regl, { placements, getAreaIndex }) => {
       // Fetch new textures
       if (index <= batch.length - loadDist) return;
       if (!fetching) {
-        texture.fetch(
+        texture().fetch(
           regl,
           10,
           dynamicRes,
@@ -132,4 +134,4 @@ module.exports = (regl, { placements, getAreaIndex }) => {
     },
     batch: () => shownBatch,
   };
-};
+}

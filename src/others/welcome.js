@@ -1,5 +1,3 @@
-const api = require("../api/local");
-
 export function setupArtWork(element) {
   const images = ["/1.webp", "/2.webp", "/3.webp", "/4.webp", "/5.webp"];
   const columns = 10; // Number of columns in the grid

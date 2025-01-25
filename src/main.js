@@ -16,16 +16,29 @@ document.querySelector("#app").innerHTML = `
     >
       <div class="absolute bg-white inset-0 blur-2xl rounded-3xl"></div>
       <div class="z-0 flex flex-col items-center justify-center">
-        <p class="font-semibold text-lg md:text-2xl w1 uppercase">Welcome to</p>
-        <h1 class="text-4xl md:text-8xl mt-5 yatri font-bold w1 tracking-widest">
-          Artuallery
+
+        <div class="flex items-center flex-col justify-center gap-2">
+          <img  src="./alinog.svg" class="w-12 h-12 w1" alt="ALIN"/>
+          <p class="font-semibold py-6 w1 uppercase">Presents</p>
+        </div>
+        <h1 class="text-4xl md:text-9xl mt-8 yatri font-bold w1 tracking-widest">
+        प्रतिबिम्ब
         </h1>
         <p class="text-lg md:text-2xl font-medium opacity-60 mt-6 uppercase w1">
-          A virtual art gallery
+          छायाँमा पारिएका कथाहरु: जलवायु संकटको अर्को पाटो
         </p>
+        <p class="text-lg bg-yellow-500 px-4 py-2 rounded-xl md:text-2xl font-bold opacity-60 mt-6 uppercase w1">फोटोग्राफी प्रदर्शनी</p>
+        <div>
+        <p class="font-semibold mt-8 w1 uppercase">With Associations of</p>
+        <div class="flex gap-4 mt-2">
+        <img src="./habitat_for_humanity.jpg" class="w-20 h-20 w1" alt="ALIN"/>
+        <img src="./naofa.png" class="w-fit h-20 w1" alt="ALIN"/>
+        </div>
+        </div>
+        
         <button
           id="start-exploring"
-          class="bg-black text-white mt-24 flex gap-2 px-4 py-2 text-base rounded-lg w1"
+          class="bg-black text-white mt-10 flex gap-2 px-4 py-2 text-base rounded-lg w1"
         >
           Start Exploring <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </button>

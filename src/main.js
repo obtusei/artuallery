@@ -18,7 +18,7 @@ document.querySelector("#app").innerHTML = `
       <div class="z-0 flex flex-col items-center justify-center">
 
         <div class="flex items-center flex-col justify-center gap-2">
-          <img  src="./alinog.svg" class="w-12 h-12 w1" alt="ALIN"/>
+          <img  src="./ALIN_Foundation.png" class="w-16 h-16 w1" alt="ALIN"/>
           <p class="font-semibold py-6 w1 uppercase">Presents</p>
         </div>
         <h1 class="text-4xl md:text-9xl mt-8 yatri font-bold w1 tracking-widest">

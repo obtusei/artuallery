@@ -34,6 +34,10 @@ document.querySelector("#app").innerHTML = `
         <img src="./habitat_for_humanity.jpg" class="w-20 h-20 w1" alt="ALIN"/>
         <img src="./naofa.png" class="w-fit h-20 w1" alt="ALIN"/>
         </div>
+        <div id="presenterNames" class="mt-10">
+          <p class="text-sm font-medium opacity-60">By</p>
+          <p class="font-semibold">Amresh Shah & Abhishek Bhatta</p>
+        </div>
         </div>
         
         <button
@@ -207,6 +211,7 @@ window.addEventListener("resize", () => {
 
 // canvas.classList.add("nocursor");
 const startExploring = document.getElementById("start-exploring");
+const presenterNames = document.getElementById("presenterNames");
 const showMore = document.getElementById("showMore");
 const paintingDetails = document.getElementById("paiting-details");
 const bottomControl = document.getElementById("bottom-control");
@@ -375,7 +380,14 @@ showMore.addEventListener("click", (event) => {
 });
 
 startExploring.addEventListener("click", startExploringfun);
-gsap.from("#welcome-bg", {
+gsap.from("#presenterNames", {
+  opacity: 0,
+  y: 20,
+  delay: 1,
+  duration: 2,
+});
+
+gsap.from("#present", {
   width: "100%",
   height: "100%",
   delay: 1,

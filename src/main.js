@@ -12,7 +12,7 @@ document.querySelector("#app").innerHTML = `
     <div id="art-bg" class="absolute hidden md:grid grid-cols-10 inset-0 gap-2"></div>
     <div
       id="welcome-bg"
-      class="flex flex-col items-center justify-center text-center gap-4 p-40 rounded-3xl relative"
+      class="flex flex-col items-center justify-center text-center gap-4 p-10 md:p-40 rounded-3xl relative"
     >
       <div class="absolute bg-white inset-0 blur-2xl rounded-3xl"></div>
       <div class="z-0 flex flex-col items-center justify-center">
@@ -30,13 +30,13 @@ document.querySelector("#app").innerHTML = `
         <p class="text-lg bg-yellow-500 px-4 py-2 rounded-xl md:text-2xl font-bold opacity-60 mt-6 uppercase w1">फोटोग्राफी प्रदर्शनी</p>
         <div>
         <p class="font-semibold mt-8 w1 uppercase">With Associations of</p>
-        <div class="flex gap-4 mt-2">
-        <img src="./habitat_for_humanity.jpg" class="w-20 h-20 w1" alt="ALIN"/>
-        <img src="./naofa.png" class="w-fit h-20 w1" alt="ALIN"/>
+        <div class="flex gap-4 items-center justify-center flex-wrap mt-2">
+        <img src="./habitat_for_humanity.jpg" class="w-10 h-10 md:w-20 md:h-20 w1" alt="ALIN"/>
+        <img src="./naofa.png" class="w-fit h-10 md:h-20 w1" alt="ALIN"/>
         </div>
         <div id="presenterNames" class="mt-10">
           <p class="text-sm font-medium opacity-60">By</p>
-          <p class="font-semibold">Amresh Shah & Abhishek Bhatta</p>
+          <p class="text-sm font-semibold">Amresh Shah & Abhishek Bhatta</p>
         </div>
         </div>
         
@@ -177,7 +177,7 @@ document.querySelector("#app").innerHTML = `
   <!-- ARTIST INFO -->
   <div
     id="artist-info"
-    class="absolute duration-300 transition-all translate-y-full h-1/2 left-4 md:left-auto bottom-0 right-4 md:w-[450px] overflow-y-scroll no-scrollbar bg-white/50 backdrop-blur-xl p-6 rounded-t-3xl"
+    class="fixed duration-300 transition-all translate-y-full h-1/2 left-4 md:left-auto bottom-0 right-4 md:w-[450px] overflow-y-scroll no-scrollbar bg-white/50 backdrop-blur-xl p-6 rounded-t-3xl"
   >
     <div class="flex items-start justify-between gap-10">
       <div class="">
